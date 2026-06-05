@@ -552,7 +552,6 @@ function appendProductCards(products, startIndex, endIndex, renderToken) {
         const card = document.createElement("article");
         card.className = "product-card";
         card.dataset.id = product.id;
-        card.style.setProperty("--card-index", String(index));
         card.innerHTML = `
             <button class="product-image-container product-open" type="button" aria-label="Ver detalles de ${escapeAttribute(product.name)}">
                 <span class="product-premium-badge">${escapeHtml(productBadge(product, index))}</span>
