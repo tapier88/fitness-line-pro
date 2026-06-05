@@ -353,9 +353,7 @@ function setupEventListeners() {
     favoriteBtn.addEventListener("click", toggleFavorite);
     detailAddBtn.addEventListener("click", addActiveProductToCart);
     setupAnimationVisibility();
-    document.querySelectorAll(".premium-category-pill").forEach((button) => {
-        button.addEventListener("click", () => navigateToCatalogCategory(button.dataset.categorySlug || ""));
-    });
+    document.addEventListener("click", handleCatalogButtonNavigation);
     setupNewsletterForm();
 }
 
@@ -927,6 +925,31 @@ function navigateToCatalogFilter(term) {
         return;
     }
     highlightFirstMatch(term);
+}
+
+function handleCatalogButtonNavigation(event) {
+    const categoryButton = event.target.closest(".premium-category-pill");
+    if (categoryButton) {
+        event.preventDefault();
+        navigateToCatalogCategory(categoryButton.dataset.categorySlug || "");
+        return;
+    }
+
+    const button = event.target.closest("button");
+    if (!button) return;
+
+    const label = normalize(button.textContent);
+    const shouldOpenCatalog = [
+        "ver catalogo",
+        "ver coleccion",
+        "ver productos",
+        "explorar"
+    ].some((text) => label.includes(text));
+
+    if (shouldOpenCatalog) {
+        event.preventDefault();
+        navigateToCatalogCategory("");
+    }
 }
 
 function navigateToSection(view, hash) {
