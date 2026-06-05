@@ -24,11 +24,26 @@ function getHighResolutionImageUrl(url) {
     return getProductImageUrl(url, 900);
 }
 
+function getProductImageSrcSet(url) {
+    return [360, 640, 800, 1000]
+        .map((size) => `${getProductImageUrl(url, size)} ${size}w`)
+        .join(", ");
+}
+
 function fallbackProductImage(product) {
     const slugs = product?.categories?.map((category) => category.slug) || [];
     if (slugs.includes("post-parto") || slugs.includes("fajas-post-quirurgicas")) return "imagenes/centro.webp";
     if (slugs.includes("linea-ultra-invisible") || slugs.includes("bodyshape-seamless")) return "imagenes/ultra-invisible-gpt.webp";
     return "imagenes/imagen-de-cambio.webp";
+}
+
+function getPublicCategorySlug(slug) {
+    const publicSlugs = {
+        "fajas-tipo-short": "fajas-cortas",
+        "fajas-tipo-body": "bodys",
+        complementos: "accesorios"
+    };
+    return publicSlugs[slug] || slug;
 }
 
 function scheduleIdleTask(callback) {
@@ -51,6 +66,18 @@ const CATEGORY_ALIASES = {
     brassieres: "brassieres",
     enterizas: "fajas-enterizas",
     "fajas enterizas": "fajas-enterizas",
+    largas: "fajas-largas",
+    "fajas largas": "fajas-largas",
+    "fajas-largas": "fajas-largas",
+    cortas: "fajas-tipo-short",
+    "fajas cortas": "fajas-tipo-short",
+    "fajas-cortas": "fajas-tipo-short",
+    bodys: "fajas-tipo-body",
+    body: "fajas-tipo-body",
+    "fajas body": "fajas-tipo-body",
+    "fajas tipo body": "fajas-tipo-body",
+    accesorios: "complementos",
+    accesorio: "complementos",
     "post parto": "post-parto",
     postparto: "post-parto",
     "ultra invisible": "linea-ultra-invisible",
@@ -66,6 +93,13 @@ const CATEGORY_ALIASES = {
 const FILTER_TERM_CATEGORY_SLUGS = {
     "reloj de arena": "linea-reloj-de-arena",
     "fajas enterizas": "fajas-enterizas",
+    "fajas largas": "fajas-largas",
+    "fajas-largas": "fajas-largas",
+    "fajas cortas": "fajas-tipo-short",
+    "fajas-cortas": "fajas-tipo-short",
+    bodys: "fajas-tipo-body",
+    body: "fajas-tipo-body",
+    accesorios: "complementos",
     cinturillas: "cinturillas",
     chalecos: "chalecos",
     "ultra invisible": "linea-ultra-invisible",
@@ -83,14 +117,18 @@ const FILTER_TERM_CATEGORY_SLUGS = {
 
 const CATEGORY_FILTER_SLUGS = [
     "fajas-enterizas",
+    "fajas-largas",
+    "fajas-tipo-short",
+    "fajas-tipo-body",
+    "chalecos",
+    "complementos",
     "post-parto",
     "fajas-post-quirurgicas",
     "linea-ultra-invisible",
     "fajas-deportivas",
     "bodyshape-seamless",
-    "chalecos",
     "cinturillas",
-    "complementos"
+    "brassieres"
 ];
 
 const mainNav = document.getElementById("mainNav");
@@ -400,8 +438,17 @@ function renderCategoryFilter() {
 function createCategoryFilterOption(category) {
     const option = document.createElement("option");
     option.value = category.slug;
-    option.textContent = category.name;
+    option.textContent = displayCategoryName(category);
     return option;
+}
+
+function displayCategoryName(category) {
+    const labels = {
+        "fajas-tipo-short": "Fajas cortas",
+        "fajas-tipo-body": "Bodys",
+        complementos: "Accesorios"
+    };
+    return labels[category.slug] || category.name;
 }
 
 function renderCatalogNavigation() {
@@ -414,11 +461,15 @@ function renderCatalogNavigation() {
         "fajas-post-quirurgicas",
         "fajas-deportivas",
         "post-parto",
+        "fajas-largas",
+        "chalecos",
+        "fajas-tipo-short",
+        "fajas-tipo-body",
+        "complementos",
         "fajas-enterizas",
         "shorts-levantacola",
-        "chalecos",
         "cinturillas",
-        "complementos"
+        "brassieres"
     ];
     const categories = preferredSlugs
         .map((slug) => catalog.categories.find((category) => category.slug === slug))
@@ -428,14 +479,14 @@ function renderCatalogNavigation() {
         const menuLink = document.createElement("button");
         menuLink.className = "catalog-mega-link";
         menuLink.type = "button";
-        menuLink.innerHTML = `<span>${escapeHtml(category.name)}</span><small>${category.count} productos</small>`;
+        menuLink.innerHTML = `<span>${escapeHtml(displayCategoryName(category))}</span><small>${category.count} productos</small>`;
         menuLink.addEventListener("click", () => selectCatalogCategory(category.slug));
         catalogMenuCategories.appendChild(menuLink);
 
         const quickLink = document.createElement("button");
         quickLink.className = "catalog-entry-link";
         quickLink.type = "button";
-        quickLink.innerHTML = `<span>${escapeHtml(category.name)}</span><small>${category.count}</small>`;
+        quickLink.innerHTML = `<span>${escapeHtml(displayCategoryName(category))}</span><small>${category.count}</small>`;
         quickLink.addEventListener("click", () => selectCatalogCategory(category.slug));
         if (catalogQuickCategories) catalogQuickCategories.appendChild(quickLink);
     });
@@ -449,7 +500,7 @@ function renderUnifiedCatalogMenu() {
         },
         {
             title: "Tipos de prenda",
-            parentId: 21
+            slugs: ["fajas-largas", "chalecos", "fajas-tipo-short", "fajas-tipo-body", "complementos", "fajas-enterizas", "cinturillas", "brassieres"]
         }
     ];
 
@@ -481,7 +532,7 @@ function createUnifiedCategoryButton(category, nested) {
     button.className = nested ? "nav-catalog-subcategory" : "nav-catalog-category";
     button.type = "button";
     button.dataset.categorySlug = category.slug;
-    button.innerHTML = `<span>${escapeHtml(category.name)}</span><small>${category.count}</small>`;
+    button.innerHTML = `<span>${escapeHtml(displayCategoryName(category))}</span><small>${category.count}</small>`;
     button.addEventListener("click", () => {
         closeUnifiedCatalogMenu();
         window.requestAnimationFrame(() => selectCatalogCategory(category.slug));
@@ -574,7 +625,7 @@ function appendProductCards(products, startIndex, endIndex, renderToken) {
         card.innerHTML = `
             <button class="product-image-container product-open" type="button" aria-label="Ver detalles de ${escapeAttribute(product.name)}">
                 <span class="product-premium-badge">${escapeHtml(productBadge(product, index))}</span>
-                <img src="${escapeAttribute(cardImageUrl)}" alt="${escapeAttribute(product.name)}" class="product-img" width="800" height="800" loading="lazy" fetchpriority="low" decoding="async" onerror="this.onerror=null;this.src='${escapeAttribute(fallbackImageUrl)}';">
+                <img src="${escapeAttribute(cardImageUrl)}" srcset="${escapeAttribute(getProductImageSrcSet(product.img))}" sizes="(max-width: 767px) calc(100vw - 48px), (max-width: 1199px) 33vw, 280px" alt="${escapeAttribute(product.name)}" class="product-img is-loading" width="800" height="800" loading="lazy" fetchpriority="low" decoding="async" onload="this.classList.remove('is-loading');" onerror="this.onerror=null;this.classList.remove('is-loading');this.src='${escapeAttribute(fallbackImageUrl)}';">
                 <span class="product-view-hint">Ver producto</span>
             </button>
             <div class="product-details">
@@ -922,11 +973,29 @@ function changeCartQuantity(key, delta) {
 function filterCatalog() {
     const slug = getCanonicalCategorySlug(catalogCategoryFilter.value);
     if (catalogCategoryFilter.value !== slug) catalogCategoryFilter.value = slug;
+    const filterSlugs = getCategoryFilterSlugs(slug);
     const filtered = slug
-        ? productsDatabase.filter((product) => product.categories.some((category) => category.slug === slug))
+        ? productsDatabase.filter((product) => product.categories.some((category) => filterSlugs.includes(category.slug)))
         : productsDatabase;
     renderProducts(filtered);
     updateCatalogViewKicker(slug, filtered.length);
+}
+
+function getCategoryFilterSlugs(slug) {
+    if (!slug) return [];
+    const root = catalog.categories.find((category) => category.slug === slug);
+    if (!root) return [slug];
+    const slugs = new Set([slug]);
+    const collectChildren = (parentId) => {
+        catalog.categories
+            .filter((category) => category.parent === parentId)
+            .forEach((category) => {
+                slugs.add(category.slug);
+                collectChildren(category.id);
+            });
+    };
+    collectChildren(root.id);
+    return [...slugs];
 }
 
 function selectCatalogCategory(slug) {
@@ -1007,7 +1076,7 @@ function updateViewUrl(view, hash, category = "") {
     const url = new URL(window.location.href);
     url.searchParams.set("vista", view);
     if (category) {
-        url.searchParams.set("categoria", category);
+        url.searchParams.set("categoria", getPublicCategorySlug(category));
     } else {
         url.searchParams.delete("categoria");
     }
@@ -1056,7 +1125,7 @@ function updateCatalogViewKicker(slug, count) {
     const category = catalog.categories.find((item) => item.slug === slug);
     const visibleCount = Math.min(count, CATALOG_DISPLAY_LIMIT);
     catalogViewKicker.textContent = category
-        ? `${category.name} | ${visibleCount} de ${count} productos`
+        ? `${displayCategoryName(category)} | ${visibleCount} de ${count} productos`
         : `Catálogo destacado | ${visibleCount} productos`;
 }
 
