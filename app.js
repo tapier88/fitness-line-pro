@@ -4,6 +4,12 @@ const OFFICIAL_WHATSAPP = "573203823557";
 const CATALOG_DISPLAY_LIMIT = 10;
 const INITIAL_PRODUCTS_RENDER = 10;
 const PRODUCTS_RENDER_CHUNK = 10;
+const HERO_ROTATION_IMAGES = [
+    "imagenes/animacion2.webp",
+    "imagenes/showcase-window-1.webp",
+    "imagenes/showcase-window-2.webp",
+    "imagenes/showcase-window-3.webp"
+];
 let productRenderToken = 0;
 
 function getProductImageUrl(url, size = 800) {
@@ -189,8 +195,10 @@ document.addEventListener("DOMContentLoaded", () => {
     renderUnifiedCatalogMenu();
     updateCartUI();
     initHeroReveal();
+    initHeroImageRotation();
     initCategoryPremiumParallax();
     setupEventListeners();
+    initCinematicScroll();
     initScrollAnimations();
     window.history.replaceState({ ...window.history.state, index: navigationIndex }, "", window.location.href);
     applyRouteFromUrl();
@@ -263,6 +271,29 @@ function initHeroReveal() {
     });
 }
 
+function initHeroImageRotation() {
+    const media = document.querySelector("[data-hero-media]");
+    if (!media || HERO_ROTATION_IMAGES.length < 2 || window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+
+    HERO_ROTATION_IMAGES.forEach((src) => {
+        const image = new Image();
+        image.decoding = "async";
+        image.src = src;
+    });
+
+    let activeIndex = 0;
+    let useAlternateLayer = false;
+    media.style.setProperty("--hero-current-image", `url("${HERO_ROTATION_IMAGES[activeIndex]}")`);
+    media.style.setProperty("--hero-next-image", `url("${HERO_ROTATION_IMAGES[activeIndex]}")`);
+
+    window.setInterval(() => {
+        activeIndex = (activeIndex + 1) % HERO_ROTATION_IMAGES.length;
+        useAlternateLayer = !useAlternateLayer;
+        media.style.setProperty(useAlternateLayer ? "--hero-next-image" : "--hero-current-image", `url("${HERO_ROTATION_IMAGES[activeIndex]}")`);
+        media.classList.toggle("hero-rotating-alt", useAlternateLayer);
+    }, 5000);
+}
+
 function initCategoryPremiumParallax() {
     const media = document.querySelector("[data-category-parallax]");
     if (!media || window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
@@ -281,6 +312,54 @@ function initCategoryPremiumParallax() {
     const requestRender = () => {
         if (frame) return;
         frame = window.requestAnimationFrame(render);
+    };
+
+    window.addEventListener("scroll", requestRender, { passive: true });
+    window.addEventListener("resize", requestRender);
+    requestRender();
+}
+
+function initCinematicScroll() {
+    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+
+    const revealTargets = document.querySelectorAll([
+        ".animated-showcase-windows",
+        ".hero-section",
+        ".promo-card",
+        ".catalog-toolbar",
+        ".premium-products-carousel",
+        ".category-premium-experience",
+        ".footer-refined"
+    ].join(","));
+
+    revealTargets.forEach((element) => element.classList.add("cinematic-reveal"));
+
+    if ("IntersectionObserver" in window) {
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach((entry) => {
+                entry.target.classList.toggle("cinematic-in-view", entry.isIntersecting);
+            });
+        }, { threshold: 0.12, rootMargin: "0px 0px -8% 0px" });
+
+        revealTargets.forEach((element) => observer.observe(element));
+    } else {
+        revealTargets.forEach((element) => element.classList.add("cinematic-in-view"));
+    }
+
+    const parallaxTargets = document.querySelectorAll(".hero-section, .promo-card, .showcase-window, .category-hero-media");
+    let frame = null;
+    const renderParallax = () => {
+        frame = null;
+        const viewportHeight = window.innerHeight || document.documentElement.clientHeight;
+        parallaxTargets.forEach((element) => {
+            const rect = element.getBoundingClientRect();
+            if (rect.bottom < 0 || rect.top > viewportHeight) return;
+            const progress = (rect.top + rect.height / 2 - viewportHeight / 2) / viewportHeight;
+            element.style.setProperty("--cinematic-parallax-y", `${(-progress * 10).toFixed(2)}px`);
+        });
+    };
+    const requestRender = () => {
+        if (!frame) frame = window.requestAnimationFrame(renderParallax);
     };
 
     window.addEventListener("scroll", requestRender, { passive: true });
@@ -588,6 +667,7 @@ function isPointerNearElement(event, element, distance) {
 
 function renderProducts(products) {
     const renderToken = ++productRenderToken;
+    productsGrid.classList.add("catalog-transitioning");
     productsGrid.innerHTML = "";
     const visibleProducts = products.slice(0, CATALOG_DISPLAY_LIMIT);
     catalogCount.textContent = products.length > CATALOG_DISPLAY_LIMIT
@@ -599,6 +679,13 @@ function renderProducts(products) {
     if (visibleProducts.length > INITIAL_PRODUCTS_RENDER) {
         scheduleIdleTask(() => appendProductCardsInChunks(visibleProducts, INITIAL_PRODUCTS_RENDER, renderToken));
     }
+
+    window.requestAnimationFrame(() => {
+        if (renderToken !== productRenderToken) return;
+        productsGrid.classList.remove("catalog-transitioning");
+        productsGrid.classList.add("catalog-transition-enter");
+        window.setTimeout(() => productsGrid.classList.remove("catalog-transition-enter"), 420);
+    });
 }
 
 function appendProductCardsInChunks(products, startIndex, renderToken) {
@@ -622,6 +709,7 @@ function appendProductCards(products, startIndex, endIndex, renderToken) {
         const card = document.createElement("article");
         card.className = "product-card";
         card.dataset.id = product.id;
+        card.style.setProperty("--card-index", String(index));
         card.innerHTML = `
             <button class="product-image-container product-open" type="button" aria-label="Ver detalles de ${escapeAttribute(product.name)}">
                 <span class="product-premium-badge">${escapeHtml(productBadge(product, index))}</span>
@@ -643,6 +731,7 @@ function appendProductCards(products, startIndex, endIndex, renderToken) {
         `;
         card.querySelectorAll(".product-open").forEach((button) => button.addEventListener("click", () => openProductDetail(product)));
         productsGrid.appendChild(card);
+        window.requestAnimationFrame(() => card.classList.add("product-card-visible"));
     });
 }
 

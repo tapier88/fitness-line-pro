@@ -939,6 +939,39 @@ a:focus-visible, button:focus-visible, input:focus-visible {
     animation: heroRevealCinematicZoom 4.8s cubic-bezier(0.16, 1, 0.3, 1) both;
 }
 
+.hero-reveal-media::before,
+.hero-reveal-media::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    z-index: 1;
+    background-position: center 34%;
+    background-size: cover;
+    opacity: 0;
+    transform: scale(1.035);
+    animation: heroKenBurns 12s ease-in-out infinite alternate;
+    transition: opacity 1.45s ease;
+    pointer-events: none;
+    will-change: opacity, transform;
+}
+
+.hero-reveal-media::before {
+    background-image: var(--hero-current-image);
+    opacity: 1;
+}
+
+.hero-reveal-media::after {
+    background-image: var(--hero-next-image);
+}
+
+.hero-reveal-media.hero-rotating-alt::before {
+    opacity: 0;
+}
+
+.hero-reveal-media.hero-rotating-alt::after {
+    opacity: 1;
+}
+
 .hero-reveal-img {
     width: 100%;
     height: 100%;
@@ -948,6 +981,10 @@ a:focus-visible, button:focus-visible, input:focus-visible {
     pointer-events: none;
     opacity: 0;
     animation: heroRevealImageFade 1.2s ease forwards;
+}
+
+.hero-reveal-color {
+    z-index: 0;
 }
 
 .hero-reveal-bw {
@@ -1107,6 +1144,11 @@ a:focus-visible, button:focus-visible, input:focus-visible {
 @keyframes heroRevealCinematicZoom {
     from { transform: translate3d(var(--parallax-x), var(--parallax-y), 0) scale(1.08); }
     to { transform: translate3d(var(--parallax-x), var(--parallax-y), 0) scale(1.035); }
+}
+
+@keyframes heroKenBurns {
+    from { transform: scale(1.025) translate3d(0, 0, 0); }
+    to { transform: scale(1.055) translate3d(0, -6px, 0); }
 }
 
 @keyframes heroRevealCopyIn {
@@ -5850,4 +5892,135 @@ body {
     background:
         linear-gradient(115deg, transparent 0 49%, rgba(229, 0, 105, 0.04) 49.2% 50.2%, transparent 50.4%),
         linear-gradient(180deg, rgba(250, 248, 249, 0.62), rgba(250, 244, 246, 0.22));
+}
+
+/* --- Cinematic motion layer: opacity + transform only --- */
+body::before {
+    content: "";
+    position: fixed;
+    inset: 0;
+    z-index: -1;
+    background:
+        radial-gradient(ellipse at 18% 18%, rgba(243, 203, 223, 0.12), transparent 34%),
+        radial-gradient(ellipse at 82% 42%, rgba(255, 255, 255, 0.22), transparent 38%);
+    opacity: 0.72;
+    transform: translate3d(0, 0, 0) scale(1);
+    animation: cinematicBackgroundDrift 18s ease-in-out infinite alternate;
+    pointer-events: none;
+    will-change: transform, opacity;
+}
+
+.cinematic-reveal {
+    opacity: 0;
+    transform: translate3d(0, 18px, 0);
+    transition:
+        opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1),
+        transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+    will-change: opacity, transform;
+}
+
+.cinematic-reveal.cinematic-in-view {
+    opacity: 1;
+    transform: translate3d(0, var(--cinematic-parallax-y, 0px), 0);
+}
+
+.hero-section.cinematic-in-view,
+.promo-card.cinematic-in-view,
+.showcase-window.cinematic-in-view,
+.category-hero-media.cinematic-in-view {
+    transform: translate3d(0, var(--cinematic-parallax-y, 0px), 0);
+}
+
+#productos .products-grid {
+    transition:
+        opacity 0.34s ease,
+        transform 0.38s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+#productos .products-grid.catalog-transitioning {
+    opacity: 0.72;
+    transform: translate3d(0, 8px, 0);
+}
+
+#productos .products-grid.catalog-transition-enter {
+    opacity: 1;
+    transform: translate3d(0, 0, 0);
+}
+
+#productos .product-card {
+    opacity: 0;
+    transform: translate3d(0, 14px, 0) scale(0.992);
+    transition:
+        opacity 0.58s cubic-bezier(0.16, 1, 0.3, 1),
+        transform 0.58s cubic-bezier(0.16, 1, 0.3, 1),
+        box-shadow 0.38s ease,
+        border-color 0.38s ease;
+    transition-delay: calc((var(--card-index, 0) % 10) * 34ms);
+}
+
+#productos .product-card.product-card-visible {
+    opacity: 1;
+    transform: translate3d(0, 0, 0) scale(1);
+}
+
+#productos .product-card.product-card-visible:hover {
+    transform: translate3d(0, -8px, 0) scale(1.03);
+}
+
+.nav-catalog-trigger,
+.nav-action-btn,
+.premium-category-pill,
+.category-hero-cta,
+.category-editorial-card,
+.product-detail-link,
+.detail-add-btn,
+.cart-checkout-btn,
+.footer-newsletter button,
+.whatsapp-widget {
+    transition:
+        opacity 0.24s ease,
+        transform 0.28s cubic-bezier(0.16, 1, 0.3, 1),
+        box-shadow 0.28s ease,
+        border-color 0.28s ease,
+        background 0.28s ease,
+        color 0.28s ease;
+    will-change: transform, opacity;
+}
+
+.nav-action-btn:hover,
+.nav-catalog-trigger:hover,
+.product-detail-link:hover,
+.detail-add-btn:hover,
+.cart-checkout-btn:hover,
+.footer-newsletter button:hover {
+    transform: translate3d(0, -2px, 0);
+}
+
+.premium-category-pill:active,
+.category-hero-cta:active,
+.product-detail-link:active,
+.detail-add-btn:active,
+.cart-checkout-btn:active {
+    transform: translate3d(0, 1px, 0) scale(0.99);
+}
+
+@keyframes cinematicBackgroundDrift {
+    from { transform: translate3d(-8px, -6px, 0) scale(1); opacity: 0.62; }
+    to { transform: translate3d(8px, 7px, 0) scale(1.018); opacity: 0.78; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    body::before,
+    .hero-reveal-media::before,
+    .hero-reveal-media::after {
+        animation: none !important;
+    }
+
+    .cinematic-reveal,
+    #productos .product-card,
+    #productos .products-grid {
+        opacity: 1 !important;
+        transform: none !important;
+        transition: none !important;
+    }
 }
