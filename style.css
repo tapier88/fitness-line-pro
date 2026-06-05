@@ -1986,9 +1986,6 @@ a:focus-visible, button:focus-visible, input:focus-visible {
     position: relative;
     transition: var(--transition-smooth);
     isolation: isolate;
-    content-visibility: auto;
-    contain-intrinsic-size: 410px 560px;
-    contain: layout paint style;
 }
 
 .product-card:hover {

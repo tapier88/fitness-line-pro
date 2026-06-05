@@ -6,8 +6,29 @@ const INITIAL_PRODUCTS_RENDER = 10;
 const PRODUCTS_RENDER_CHUNK = 10;
 let productRenderToken = 0;
 
+function getProductImageUrl(url, size = 800) {
+    if (!url) return "";
+    const highResolutionUrl = url.replace(/-324x324(?=\.(?:png|jpe?g|webp)(?:\?|$))/i, "");
+    try {
+        const parsed = new URL(highResolutionUrl);
+        if (parsed.hostname === "fitnesslinefajas.com") {
+            return `https://i0.wp.com/${parsed.hostname}${parsed.pathname}?resize=${size}%2C${size}&ssl=1`;
+        }
+    } catch (error) {
+        return highResolutionUrl;
+    }
+    return highResolutionUrl;
+}
+
 function getHighResolutionImageUrl(url) {
-    return url?.replace(/-324x324(?=\.(?:png|jpe?g|webp)(?:\?|$))/i, "") || "";
+    return getProductImageUrl(url, 900);
+}
+
+function fallbackProductImage(product) {
+    const slugs = product?.categories?.map((category) => category.slug) || [];
+    if (slugs.includes("post-parto") || slugs.includes("fajas-post-quirurgicas")) return "imagenes/centro.webp";
+    if (slugs.includes("linea-ultra-invisible") || slugs.includes("bodyshape-seamless")) return "imagenes/ultra-invisible-gpt.webp";
+    return "imagenes/imagen-de-cambio.webp";
 }
 
 function scheduleIdleTask(callback) {
@@ -545,15 +566,15 @@ function appendProductCards(products, startIndex, endIndex, renderToken) {
 
     products.slice(startIndex, endIndex).forEach((product, offset) => {
         const index = startIndex + offset;
-        const shouldPrioritizeImage = index < 6;
-        const cardImageUrl = getHighResolutionImageUrl(product.img);
+        const cardImageUrl = getProductImageUrl(product.img, 800);
+        const fallbackImageUrl = fallbackProductImage(product);
         const card = document.createElement("article");
         card.className = "product-card";
         card.dataset.id = product.id;
         card.innerHTML = `
             <button class="product-image-container product-open" type="button" aria-label="Ver detalles de ${escapeAttribute(product.name)}">
                 <span class="product-premium-badge">${escapeHtml(productBadge(product, index))}</span>
-                <img src="${escapeAttribute(cardImageUrl)}" alt="${escapeAttribute(product.name)}" class="product-img" width="800" height="800" loading="${shouldPrioritizeImage ? "eager" : "lazy"}" ${shouldPrioritizeImage ? 'fetchpriority="high"' : 'fetchpriority="low"'} decoding="async">
+                <img src="${escapeAttribute(cardImageUrl)}" alt="${escapeAttribute(product.name)}" class="product-img" width="800" height="800" loading="lazy" fetchpriority="low" decoding="async" onerror="this.onerror=null;this.src='${escapeAttribute(fallbackImageUrl)}';">
                 <span class="product-view-hint">Ver producto</span>
             </button>
             <div class="product-details">
@@ -629,7 +650,7 @@ function openProductDetail(product) {
         const thumbnail = document.createElement("button");
         thumbnail.className = `detail-thumbnail${index === 0 ? " active" : ""}`;
         thumbnail.type = "button";
-        thumbnail.innerHTML = `<img src="${escapeAttribute(image)}" alt="${escapeAttribute(product.name)}" width="92" height="92" loading="lazy" decoding="async">`;
+        thumbnail.innerHTML = `<img src="${escapeAttribute(getProductImageUrl(image, 180))}" alt="${escapeAttribute(product.name)}" width="92" height="92" loading="lazy" decoding="async" onerror="this.onerror=null;this.src='${escapeAttribute(fallbackProductImage(product))}';">`;
         thumbnail.addEventListener("click", () => setDetailImage(getHighResolutionImageUrl(image), thumbnail));
         detailThumbnails.appendChild(thumbnail);
     });
@@ -699,6 +720,10 @@ function addActiveProductToCart() {
 }
 
 function setDetailImage(image, thumbnail) {
+    detailMainImage.onerror = () => {
+        detailMainImage.onerror = null;
+        detailMainImage.src = fallbackProductImage(activeProduct);
+    };
     detailMainImage.src = image;
     detailMainImage.alt = activeProduct?.name || "Producto Fitness Line";
     detailThumbnails.querySelectorAll(".detail-thumbnail").forEach((item) => item.classList.remove("active"));
@@ -858,7 +883,7 @@ function updateCartUI() {
         const row = document.createElement("div");
         row.className = "cart-item";
         row.innerHTML = `
-            <img src="${escapeAttribute(item.img)}" alt="${escapeAttribute(item.name)}" class="cart-item-img" width="74" height="74" loading="lazy" decoding="async">
+            <img src="${escapeAttribute(getProductImageUrl(item.img, 160))}" alt="${escapeAttribute(item.name)}" class="cart-item-img" width="74" height="74" loading="lazy" decoding="async" onerror="this.onerror=null;this.src='imagenes/imagen-de-cambio.webp';">
             <div class="cart-item-details">
                 <h4 class="cart-item-name">${escapeHtml(item.name)}</h4>
                 <p class="cart-item-meta">${escapeHtml(attributes)}</p>
@@ -1111,7 +1136,7 @@ function handleSearch(query) {
         item.className = "suggested-item";
         item.type = "button";
         item.innerHTML = `
-            <img src="${escapeAttribute(product.img)}" alt="${escapeAttribute(product.name)}" class="suggested-img" width="50" height="50" loading="lazy" decoding="async">
+            <img src="${escapeAttribute(getProductImageUrl(product.img, 120))}" alt="${escapeAttribute(product.name)}" class="suggested-img" width="50" height="50" loading="lazy" decoding="async" onerror="this.onerror=null;this.src='${escapeAttribute(fallbackProductImage(product))}';">
             <div>
                 <h5 class="suggested-name">${escapeHtml(product.name)}</h5>
                 <p class="suggested-category">L&iacute;nea: ${escapeHtml(primaryCategory(product))}</p>
