@@ -5,6 +5,7 @@ const vm = require("vm");
 const root = path.resolve(__dirname, "..");
 const htmlPath = path.join(root, "index.html");
 const html = fs.readFileSync(htmlPath, "utf8");
+const css = fs.readFileSync(path.join(root, "style.css"), "utf8");
 const errors = [];
 const warnings = [];
 
@@ -75,6 +76,41 @@ const sensitivePattern = /(sk_live|sk_test|AIza[0-9A-Za-z_-]{20,}|BEGIN PRIVATE 
 for (const file of ["index.html", "style.css", "app.js", "catalog-data.js", "robots.txt", "sitemap.xml"]) {
   const content = fs.readFileSync(path.join(root, file), "utf8");
   if (sensitivePattern.test(content)) fail(`Possible sensitive value found in ${file}`);
+  if (content.includes("\uFFFD")) fail(`Invalid replacement character found in ${file}; check UTF-8 encoding`);
+}
+
+const approvedColorTokens = [
+  "--color-primary",
+  "--color-primary-soft",
+  "--color-primary-hover",
+  "--color-neutral-100",
+  "--color-neutral-200",
+  "--color-neutral-300",
+  "--color-dark",
+  "--surface-base",
+  "--surface-soft",
+  "--surface-mid",
+  "--surface-contrast",
+  "--surface-dark"
+];
+const tokenHeaderEnd = css.indexOf("/* --- BASE STYLES --- */");
+const componentCss = tokenHeaderEnd >= 0 ? css.slice(tokenHeaderEnd) : css;
+const rawComponentColors = componentCss.match(/#[0-9a-f]{3,8}\b|rgba?\(\s*\d+\s*,|\b(?:white|black)\b/gi) || [];
+if (rawComponentColors.length) {
+  fail(`Components contain raw colors outside the approved token system: ${[...new Set(rawComponentColors)].join(", ")}`);
+}
+const competingAccentChannels = componentCss.match(/rgb\(from var\(--color-neutral-100\) (?:37 99 235|225 29 72|245 158 11|46 119 188|31 110 173|12 84 132|8 68 110|37 211 102|24 196 90) \/ [^)]+\)/gi) || [];
+if (competingAccentChannels.length) {
+  fail(`Components contain functional accents outside the Fitness Line pink family: ${[...new Set(competingAccentChannels)].join(", ")}`);
+}
+for (const reference of componentCss.matchAll(/var\((--color-[a-z0-9-]+)\)/gi)) {
+  if (!approvedColorTokens.includes(reference[1])) fail(`Unapproved color token reference: ${reference[1]}`);
+}
+for (const reference of componentCss.matchAll(/var\((--surface-[a-z0-9-]+)\)/gi)) {
+  if (!approvedColorTokens.includes(reference[1])) fail(`Unapproved surface token reference: ${reference[1]}`);
+}
+for (const token of approvedColorTokens) {
+  if (!css.includes(`${token}:`)) fail(`Missing approved color token declaration: ${token}`);
 }
 
 const context = { window: {}, console };

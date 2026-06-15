@@ -1,4 +1,4 @@
-﻿const catalog = window.FITNESS_LINE_CATALOG || { categories: [], products: [] };
+const catalog = window.FITNESS_LINE_CATALOG || { categories: [], products: [] };
 const productsDatabase = catalog.products;
 const OFFICIAL_WHATSAPP = "573203823557";
 const CATALOG_DISPLAY_LIMIT = 10;
@@ -198,6 +198,7 @@ document.addEventListener("DOMContentLoaded", () => {
     initHeroImageRotation();
     initCategoryPremiumParallax();
     setupEventListeners();
+    initTechnologyScrollShowcase();
     initCinematicScroll();
     initScrollAnimations();
     window.history.replaceState({ ...window.history.state, index: navigationIndex }, "", window.location.href);
@@ -324,7 +325,7 @@ function initCinematicScroll() {
 
     const revealTargets = document.querySelectorAll([
         ".animated-showcase-windows",
-        ".hero-section",
+        ".hero-section:not(.hero-ultra-clean)",
         ".promo-card",
         ".catalog-toolbar",
         ".premium-products-carousel",
@@ -346,7 +347,7 @@ function initCinematicScroll() {
         revealTargets.forEach((element) => element.classList.add("cinematic-in-view"));
     }
 
-    const parallaxTargets = document.querySelectorAll(".hero-section, .promo-card, .showcase-window, .category-hero-media");
+    const parallaxTargets = document.querySelectorAll(".hero-section:not(.hero-ultra-clean), .promo-card, .showcase-window, .category-hero-media");
     let frame = null;
     const renderParallax = () => {
         frame = null;
@@ -736,16 +737,171 @@ function appendProductCards(products, startIndex, endIndex, renderToken) {
 }
 
 function setupAnimationVisibility() {
+    const section = document.querySelector(".technology-marquee-section");
     const marquee = document.querySelector(".technology-marquee");
-    if (!marquee || !("IntersectionObserver" in window)) return;
+    if (!section || !marquee) return;
+
+    section.querySelectorAll(".technology-marquee-card").forEach((card, index) => {
+        card.style.setProperty("--technology-index", String(index));
+    });
+
+    if (!("IntersectionObserver" in window)) {
+        section.classList.add("is-revealed");
+        return;
+    }
 
     const observer = new IntersectionObserver((entries) => {
         entries.forEach((entry) => {
             marquee.classList.toggle("is-paused", !entry.isIntersecting);
+            if (entry.isIntersecting) {
+                section.classList.add("is-revealed");
+                observer.unobserve(section);
+            }
         });
-    }, { threshold: 0.08 });
+    }, { threshold: 0.18, rootMargin: "0px 0px -8% 0px" });
 
-    observer.observe(marquee);
+    observer.observe(section);
+}
+
+function initTechnologyScrollShowcase() {
+    const section = document.querySelector(".technology-marquee-section");
+    const stage = section?.closest(".hero-ultra-clean");
+    const marquee = section?.querySelector(".technology-marquee");
+    const track = section?.querySelector(".technology-marquee-track");
+    if (!section || !stage || !marquee || !track) return;
+
+    const desktopQuery = window.matchMedia("(min-width: 768px)");
+    const hoverQuery = window.matchMedia("(hover: hover) and (pointer: fine)");
+    const reducedMotionQuery = window.matchMedia("(prefers-reduced-motion: reduce)");
+    let frame = null;
+    let hoverFrame = null;
+    let hoverTimestamp = 0;
+    let hoverDirection = -1;
+    let hoverX = 0;
+    let isHovering = false;
+    let travel = 0;
+    let scrollStart = 0;
+    let scrollRange = 1;
+    let measureFrame = null;
+
+    const clearDesktopEffect = () => {
+        isHovering = false;
+        if (hoverFrame) window.cancelAnimationFrame(hoverFrame);
+        hoverFrame = null;
+        stage.classList.remove("technology-scroll-stage");
+        section.classList.remove("is-hover-animating");
+        stage.style.removeProperty("--technology-scroll-height");
+        track.style.removeProperty("--technology-scroll-x");
+    };
+
+    const measure = () => {
+        travel = Math.max(0, track.scrollWidth - marquee.clientWidth);
+
+        if (!desktopQuery.matches || reducedMotionQuery.matches) {
+            clearDesktopEffect();
+            return;
+        }
+
+        stage.classList.add("technology-scroll-stage");
+        track.style.setProperty("--technology-scroll-x", "0px");
+        const journey = Math.max(window.innerHeight * 0.35, travel * 0.8);
+        stage.style.setProperty("--technology-scroll-height", `${section.offsetHeight + journey}px`);
+        const stageTop = stage.getBoundingClientRect().top + window.scrollY;
+        const stickyTop = Number.parseFloat(window.getComputedStyle(section).top) || 0;
+        scrollStart = stageTop - stickyTop;
+        scrollRange = Math.max(1, journey);
+        requestRender();
+    };
+
+    const requestMeasure = () => {
+        if (measureFrame) window.cancelAnimationFrame(measureFrame);
+        measureFrame = window.requestAnimationFrame(() => {
+            measureFrame = null;
+            measure();
+        });
+    };
+
+    const renderHover = (timestamp) => {
+        if (!isHovering || !hoverQuery.matches || reducedMotionQuery.matches || travel <= 0) {
+            hoverFrame = null;
+            return;
+        }
+
+        const elapsed = hoverTimestamp ? Math.min(40, timestamp - hoverTimestamp) : 0;
+        hoverTimestamp = timestamp;
+        hoverX += hoverDirection * elapsed * 0.065;
+
+        if (hoverX <= -travel) {
+            hoverX = -travel;
+            hoverDirection = 1;
+        } else if (hoverX >= 0) {
+            hoverX = 0;
+            hoverDirection = -1;
+        }
+
+        if (desktopQuery.matches) {
+            track.style.setProperty("--technology-scroll-x", `${hoverX.toFixed(2)}px`);
+        } else {
+            marquee.scrollLeft = -hoverX;
+        }
+        hoverFrame = window.requestAnimationFrame(renderHover);
+    };
+
+    const startHoverAnimation = () => {
+        if (!hoverQuery.matches || reducedMotionQuery.matches || travel <= 0) return;
+        isHovering = true;
+        hoverTimestamp = 0;
+        const progress = desktopQuery.matches
+            ? Math.max(0, Math.min(1, (window.scrollY - scrollStart) / scrollRange))
+            : Math.max(0, Math.min(1, marquee.scrollLeft / travel));
+        hoverX = -travel * progress;
+        hoverDirection = hoverX <= -travel + 1 ? 1 : -1;
+        section.classList.add("is-hover-animating");
+        if (!hoverFrame) hoverFrame = window.requestAnimationFrame(renderHover);
+    };
+
+    const stopHoverAnimation = () => {
+        isHovering = false;
+        hoverTimestamp = 0;
+        section.classList.remove("is-hover-animating");
+        if (hoverFrame) window.cancelAnimationFrame(hoverFrame);
+        hoverFrame = null;
+        if (desktopQuery.matches) requestRender();
+    };
+
+    const render = () => {
+        frame = null;
+        if (isHovering || !desktopQuery.matches || reducedMotionQuery.matches || travel <= 0) return;
+        const progress = Math.max(0, Math.min(1, (window.scrollY - scrollStart) / scrollRange));
+        track.style.setProperty("--technology-scroll-x", `${(-travel * progress).toFixed(2)}px`);
+    };
+
+    const requestRender = () => {
+        if (frame) return;
+        frame = window.requestAnimationFrame(render);
+    };
+
+    const handleScroll = () => {
+        if (isHovering) stopHoverAnimation();
+        requestRender();
+    };
+
+    window.addEventListener("scroll", handleScroll, { passive: true });
+    window.addEventListener("resize", requestMeasure);
+    desktopQuery.addEventListener("change", requestMeasure);
+    hoverQuery.addEventListener("change", requestMeasure);
+    reducedMotionQuery.addEventListener("change", requestMeasure);
+    section.addEventListener("pointerenter", startHoverAnimation);
+    section.addEventListener("pointerleave", stopHoverAnimation);
+    document.fonts?.ready.then(requestMeasure);
+
+    if ("ResizeObserver" in window) {
+        const resizeObserver = new ResizeObserver(requestMeasure);
+        resizeObserver.observe(section);
+        resizeObserver.observe(track);
+    }
+
+    measure();
 }
 
 function productBadge(product, index) {
