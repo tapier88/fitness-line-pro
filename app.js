@@ -122,19 +122,21 @@ const FILTER_TERM_CATEGORY_SLUGS = {
 };
 
 const CATEGORY_FILTER_SLUGS = [
+    "linea-reloj-de-arena",
+    "linea-ultra-invisible",
+    "bodyshape-seamless",
     "fajas-enterizas",
     "fajas-largas",
     "fajas-tipo-short",
     "fajas-tipo-body",
-    "chalecos",
-    "complementos",
     "post-parto",
     "fajas-post-quirurgicas",
-    "linea-ultra-invisible",
     "fajas-deportivas",
-    "bodyshape-seamless",
     "cinturillas",
-    "brassieres"
+    "chalecos",
+    "brassieres",
+    "shorts-levantacola",
+    "complementos"
 ];
 
 const mainNav = document.getElementById("mainNav");
@@ -524,9 +526,21 @@ function createCategoryFilterOption(category) {
 
 function displayCategoryName(category) {
     const labels = {
-        "fajas-tipo-short": "Fajas cortas",
+        "linea-reloj-de-arena": "Reloj de Arena",
+        "linea-ultra-invisible": "Ultra Invisible",
+        "bodyshape-seamless": "Bodyshape Seamless",
+        "fajas-enterizas": "Fajas Enterizas",
+        "fajas-largas": "Fajas Largas",
+        "fajas-tipo-short": "Fajas Cortas",
         "fajas-tipo-body": "Bodys",
-        complementos: "Accesorios"
+        "post-parto": "Post Parto",
+        "fajas-post-quirurgicas": "Post Quirúrgicas",
+        "fajas-deportivas": "Deportivas",
+        "cinturillas": "Cinturillas",
+        "chalecos": "Chalecos",
+        "brassieres": "Brassieres",
+        "shorts-levantacola": "Shorts Levantacola",
+        "complementos": "Accesorios"
     };
     return labels[category.slug] || category.name;
 }
@@ -907,8 +921,12 @@ function initTechnologyScrollShowcase() {
 function productBadge(product, index) {
     const slugs = product.categories.map((category) => category.slug);
     if (index === 0) return "MÁS VENDIDA";
+    if (slugs.includes("sale")) return "ÚLTIMA UNIDAD";
     if (slugs.includes("post-parto") || slugs.includes("parto-natural") || slugs.includes("parto-por-cesarea")) return "POST PARTO";
     if (slugs.includes("fajas-deportivas") || slugs.includes("compresion-fuerte")) return "ALTA COMPRESIÓN";
+    if (slugs.includes("bodyshape-seamless")) return "SIN COSTURAS";
+    if (slugs.includes("linea-ultra-invisible")) return "INVISIBLE";
+    if (index < 4) return "DESTACADO";
     return "NUEVA COLECCIÓN";
 }
 

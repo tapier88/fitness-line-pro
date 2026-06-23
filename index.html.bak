@@ -338,47 +338,6 @@
             </div>
         </section>
 
-    <!-- --- EDITORIAL TESTIMONIALS --- -->
-    <section class="editorial-testimonials" id="testimonios" aria-labelledby="testimonialsTitle">
-        <div class="editorial-testimonials-inner">
-            <header class="editorial-testimonials-heading animate-on-scroll">
-                <span>Experiencias Fitness Line</span>
-                <h2 id="testimonialsTitle">Confianza que se nota.<br><em>Comodidad que se siente.</em></h2>
-                <p>Historias de mujeres que eligieron soporte, libertad y una silueta que se siente naturalmente suya.</p>
-            </header>
-
-            <div class="editorial-testimonials-layout">
-                <article class="testimonial-featured animate-on-scroll delay-1">
-                    <div class="testimonial-rating" aria-label="5 de 5 estrellas">
-                        <i class="fa-solid fa-star" aria-hidden="true"></i><i class="fa-solid fa-star" aria-hidden="true"></i><i class="fa-solid fa-star" aria-hidden="true"></i><i class="fa-solid fa-star" aria-hidden="true"></i><i class="fa-solid fa-star" aria-hidden="true"></i>
-                    </div>
-                    <blockquote>&ldquo;Me sorprendi&oacute; sentir soporte sin perder comodidad. La uso durante todo el d&iacute;a y se adapta a mi cuerpo de una forma muy natural.&rdquo;</blockquote>
-                    <footer>
-                        <strong>Mariana R.</strong>
-                        <span>Medell&iacute;n</span>
-                    </footer>
-                </article>
-
-                <div class="testimonial-secondary-list">
-                    <article class="testimonial-secondary animate-on-scroll delay-2">
-                        <div class="testimonial-rating" aria-label="5 de 5 estrellas">
-                            <i class="fa-solid fa-star" aria-hidden="true"></i><i class="fa-solid fa-star" aria-hidden="true"></i><i class="fa-solid fa-star" aria-hidden="true"></i><i class="fa-solid fa-star" aria-hidden="true"></i><i class="fa-solid fa-star" aria-hidden="true"></i>
-                        </div>
-                        <blockquote>&ldquo;Debajo de mis vestidos no se marca y me siento mucho m&aacute;s segura. El ajuste es firme, pero nunca inc&oacute;modo.&rdquo;</blockquote>
-                        <footer><strong>Laura P.</strong><span>Bogot&aacute;</span></footer>
-                    </article>
-                    <article class="testimonial-secondary animate-on-scroll delay-3">
-                        <div class="testimonial-rating" aria-label="5 de 5 estrellas">
-                            <i class="fa-solid fa-star" aria-hidden="true"></i><i class="fa-solid fa-star" aria-hidden="true"></i><i class="fa-solid fa-star" aria-hidden="true"></i><i class="fa-solid fa-star" aria-hidden="true"></i><i class="fa-solid fa-star" aria-hidden="true"></i>
-                        </div>
-                        <blockquote>&ldquo;La asesor&iacute;a de talla hizo toda la diferencia. Recib&iacute; una prenda que realmente se siente hecha para m&iacute;.&rdquo;</blockquote>
-                        <footer><strong>Carolina M.</strong><span>Cali</span></footer>
-                    </article>
-                </div>
-            </div>
-        </div>
-    </section>
-
         <!-- HERO BANNER 2: Ultra Invisible (Aesthetic Light Split Layout) -->
         <section class="hero-section hero-light hero-clean hero-ultra-clean" id="ultra-invisible">
             <img class="hero-overlay-logo animate-on-scroll" src="https://fitnesslinefajas.com/wp-content/uploads/2023/04/logos_Fitness_Line.png" alt="Fitness Line" width="220" height="58" loading="lazy" decoding="async">
@@ -747,6 +706,46 @@
         <span class="whatsapp-text">Asesor&iacute;a Fajas Pro</span>
     </a>
 
+    <!-- --- EDITORIAL TESTIMONIALS --- -->
+    <section class="editorial-testimonials" id="testimonios" aria-labelledby="testimonialsTitle">
+        <div class="editorial-testimonials-inner">
+            <header class="editorial-testimonials-heading animate-on-scroll">
+                <span>Experiencias Fitness Line</span>
+                <h2 id="testimonialsTitle">Confianza que se nota.<br><em>Comodidad que se siente.</em></h2>
+                <p>Historias de mujeres que eligieron soporte, libertad y una silueta que se siente naturalmente suya.</p>
+            </header>
+
+            <div class="editorial-testimonials-layout">
+                <article class="testimonial-featured animate-on-scroll delay-1">
+                    <div class="testimonial-rating" aria-label="5 de 5 estrellas">
+                        <i class="fa-solid fa-star" aria-hidden="true"></i><i class="fa-solid fa-star" aria-hidden="true"></i><i class="fa-solid fa-star" aria-hidden="true"></i><i class="fa-solid fa-star" aria-hidden="true"></i><i class="fa-solid fa-star" aria-hidden="true"></i>
+                    </div>
+                    <blockquote>&ldquo;Me sorprendi&oacute; sentir soporte sin perder comodidad. La uso durante todo el d&iacute;a y se adapta a mi cuerpo de una forma muy natural.&rdquo;</blockquote>
+                    <footer>
+                        <strong>Mariana R.</strong>
+                        <span>Medell&iacute;n</span>
+                    </footer>
+                </article>
+
+                <div class="testimonial-secondary-list">
+                    <article class="testimonial-secondary animate-on-scroll delay-2">
+                        <div class="testimonial-rating" aria-label="5 de 5 estrellas">
+                            <i class="fa-solid fa-star" aria-hidden="true"></i><i class="fa-solid fa-star" aria-hidden="true"></i><i class="fa-solid fa-star" aria-hidden="true"></i><i class="fa-solid fa-star" aria-hidden="true"></i><i class="fa-solid fa-star" aria-hidden="true"></i>
+                        </div>
+                        <blockquote>&ldquo;Debajo de mis vestidos no se marca y me siento mucho m&aacute;s segura. El ajuste es firme, pero nunca inc&oacute;modo.&rdquo;</blockquote>
+                        <footer><strong>Laura P.</strong><span>Bogot&aacute;</span></footer>
+                    </article>
+                    <article class="testimonial-secondary animate-on-scroll delay-3">
+                        <div class="testimonial-rating" aria-label="5 de 5 estrellas">
+                            <i class="fa-solid fa-star" aria-hidden="true"></i><i class="fa-solid fa-star" aria-hidden="true"></i><i class="fa-solid fa-star" aria-hidden="true"></i><i class="fa-solid fa-star" aria-hidden="true"></i><i class="fa-solid fa-star" aria-hidden="true"></i>
+                        </div>
+                        <blockquote>&ldquo;La asesor&iacute;a de talla hizo toda la diferencia. Recib&iacute; una prenda que realmente se siente hecha para m&iacute;.&rdquo;</blockquote>
+                        <footer><strong>Carolina M.</strong><span>Cali</span></footer>
+                    </article>
+                </div>
+            </div>
+        </div>
+    </section>
 
     <!-- --- PREMIUM FOOTER --- -->
     <footer class="footer footer-refined" id="footer">
