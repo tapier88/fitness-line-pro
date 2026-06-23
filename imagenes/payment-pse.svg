@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 180 84" role="img" aria-labelledby="title">
+  <title id="title">PSE Pagos Seguros en Línea</title>
+  <rect width="180" height="84" rx="10" fill="#fff"/>
+  <path fill="#f58220" d="M22 17h29l13 13-13 13H22l13-13z"/>
+  <path fill="#0878bd" d="M65 17h29l13 13-13 13H65l13-13z"/>
+  <path fill="#6eb43f" d="M108 17h29l13 13-13 13h-29l13-13z"/>
+  <text x="26" y="67" fill="#145a88" font-family="Arial,Helvetica,sans-serif" font-size="25" font-weight="700" letter-spacing="1">PSE</text>
+  <text x="77" y="57" fill="#626262" font-family="Arial,Helvetica,sans-serif" font-size="8" font-weight="700">PAGOS SEGUROS</text>
+  <text x="77" y="68" fill="#626262" font-family="Arial,Helvetica,sans-serif" font-size="8" font-weight="700">EN LÍNEA</text>
+</svg>

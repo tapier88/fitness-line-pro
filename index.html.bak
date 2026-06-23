@@ -1,0 +1,823 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <title>Fitness Line Pro | Fajas colombianas premium</title>
+    <meta name="description" content="Fitness Line Pro fabrica fajas colombianas premium para moldeo, soporte, postparto y uso diario con comodidad, tecnolog&iacute;a y acabados elegantes.">
+    <meta name="robots" content="index, follow, max-image-preview:large">
+    <link rel="canonical" href="https://fitnesslinefajas.com/">
+    <meta property="og:title" content="Fitness Line Pro | Fajas colombianas premium">
+    <meta property="og:description" content="Descubre fajas premium Fitness Line con moldeo, soporte y tecnolog&iacute;a colombiana para una silueta estilizada.">
+    <meta property="og:image" content="https://fitnesslinefajas.com/imagenes/animacion2.webp">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://fitnesslinefajas.com/">
+    <meta property="og:site_name" content="Fitness Line Pro">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Fitness Line Pro | Fajas colombianas premium">
+    <meta name="twitter:description" content="Fajas colombianas premium para moldeo, soporte, postparto y uso diario.">
+    <meta name="twitter:image" content="https://fitnesslinefajas.com/imagenes/animacion2.webp">
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@graph": [
+            {
+                "@type": "Organization",
+                "@id": "https://fitnesslinefajas.com/#organization",
+                "name": "Fitness Line Pro",
+                "url": "https://fitnesslinefajas.com/",
+                "logo": "https://fitnesslinefajas.com/wp-content/uploads/2023/04/logos_Fitness_Line.png",
+                "contactPoint": {
+                    "@type": "ContactPoint",
+                    "telephone": "+57-320-382-3557",
+                    "contactType": "customer service",
+                    "areaServed": "CO",
+                    "availableLanguage": "es"
+                }
+            },
+            {
+                "@type": "WebSite",
+                "@id": "https://fitnesslinefajas.com/#website",
+                "url": "https://fitnesslinefajas.com/",
+                "name": "Fitness Line Pro",
+                "publisher": {
+                    "@id": "https://fitnesslinefajas.com/#organization"
+                },
+                "inLanguage": "es-CO"
+            },
+            {
+                "@type": "ItemList",
+                "@id": "https://fitnesslinefajas.com/#catalog",
+                "name": "Catálogo de fajas Fitness Line Pro",
+                "itemListElement": [
+                    { "@type": "ListItem", "position": 1, "name": "Fajas colombianas premium" },
+                    { "@type": "ListItem", "position": 2, "name": "Fajas postparto" },
+                    { "@type": "ListItem", "position": 3, "name": "Fajas deportivas" },
+                    { "@type": "ListItem", "position": 4, "name": "Bodyshape Seamless" }
+                ]
+            }
+        ]
+    }
+    </script>
+    
+    <!-- External Icon library (FontAwesome) -->
+    <link rel="preload" as="image" href="imagenes/animacion2.webp" type="image/webp" fetchpriority="high">
+    <link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin>
+    <link rel="preconnect" href="https://fitnesslinefajas.com" crossorigin>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,500;1,600&display=swap" rel="stylesheet">
+    
+    <!-- Design System Stylesheet -->
+    <link rel="stylesheet" href="style.css?v=78">
+</head>
+<body>
+
+    <!-- --- PROMO BAR --- -->
+    <div class="promo-bar" id="promoBar">
+        <div class="promo-bar-track">
+            <span>Env&iacute;os GRATIS en todo Colombia (Detal) | Paga contra entrega en efectivo o con tarjeta</span>
+            <span aria-hidden="true">Env&iacute;os GRATIS en todo Colombia (Detal) | Paga contra entrega en efectivo o con tarjeta</span>
+        </div>
+    </div>
+
+    <!-- --- NAVIGATION SYSTEM (Apple Style Glassmorphism & Mega Menus) --- -->
+    <nav class="nav-wrapper" id="mainNav">
+        <div class="nav-container">
+            <!-- Brand Logo -->
+            <a href="/" class="nav-logo" id="navLogo" aria-label="Inicio Fitness Line Pro">
+                <img src="https://fitnesslinefajas.com/wp-content/uploads/2023/04/logos_Fitness_Line.png" alt="Fitness Line Logo" width="220" height="58" fetchpriority="high" decoding="async">
+            </a>
+
+            <!-- Legacy navigation links remain available to scripts but hidden from the simplified header. -->
+            <ul class="nav-links nav-links-hidden" id="navLinks">
+                <li class="nav-item-dropdown">
+                    <a href="#reloj-de-arena" class="nav-item nav-view-link" data-view="reloj-de-arena">Reloj de Arena</a>
+                    <div class="mega-menu">
+                        <div class="mega-menu-content">
+                            <div class="mega-menu-column">
+                                <h4>Colecci&oacute;n</h4>
+                                <a href="#productos" class="mega-link" data-filter="Reloj de Arena">Ver Todo Reloj de Arena</a>
+                                <a href="#productos" class="mega-link" data-filter="Fajas Enterizas">Fajas Enterizas</a>
+                                <a href="#productos" class="mega-link" data-filter="Cinturillas">Cinturillas de Moldeo</a>
+                                <a href="#productos" class="mega-link" data-filter="Chalecos">Chalecos de Soporte</a>
+                            </div>
+                            <div class="mega-menu-column">
+                                <h4>Materiales</h4>
+                                <a href="#productos">Powernet de Alta Densidad</a>
+                                <a href="#productos">L&aacute;tex Antial&eacute;rgico Natural</a>
+                                <a href="#productos">Forro de Algod&oacute;n Premium</a>
+                            </div>
+                            <div class="mega-menu-column mega-featured">
+                                <img src="https://fitnesslinefajas.com/wp-content/uploads/2026/01/8093-fr.png" alt="Enteriza Paris" width="120" height="120" loading="lazy" decoding="async">
+                                <div class="mega-featured-text">
+                                    <h5>Faja Paris (8093)</h5>
+                                    <p>Curvas pronunciadas con sistema levantacola premium.</p>
+                                    <a href="#productos" class="btn-tertiary" style="color: var(--color-primary); padding: 0; font-size: 0.8rem;">Ver Producto</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </li>
+
+                <li class="nav-item-dropdown">
+                    <a href="#ultra-invisible" class="nav-item nav-view-link" data-view="ultra-invisible">Ultra Invisible</a>
+                    <div class="mega-menu">
+                        <div class="mega-menu-content">
+                            <div class="mega-menu-column">
+                                <h4>Dise&ntilde;os</h4>
+                                <a href="#productos" class="mega-link" data-filter="Ultra Invisible">Victoria Short Levantacola</a>
+                                <a href="#productos" class="mega-link" data-filter="Panty">PantyFlex Modeladora</a>
+                                <a href="#productos" class="mega-link" data-filter="Fajas Enterizas">Enterizas Invisibles</a>
+                            </div>
+                            <div class="mega-menu-column">
+                                <h4>Tecnolog&iacute;a</h4>
+                                <a href="#productos">Corte L&aacute;ser Termosellado</a>
+                                <a href="#productos">Microfibra Ultra Delgada</a>
+                                <a href="#productos">Sin Costuras Marcadas</a>
+                            </div>
+                            <div class="mega-menu-column mega-featured">
+                                <img src="https://fitnesslinefajas.com/wp-content/uploads/2026/01/8092-fr.png" alt="Victoria" width="120" height="120" loading="lazy" decoding="async">
+                                <div class="mega-featured-text">
+                                    <h5>Faja Victoria (8092)</h5>
+                                    <p>La faja m&aacute;s vendida. Invisible debajo de cualquier vestido.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </li>
+
+                <li class="nav-item-dropdown">
+                    <a href="#colecciones" class="nav-item nav-view-link" data-view="colecciones">Deportiva</a>
+                    <div class="mega-menu">
+                        <div class="mega-menu-content">
+                            <div class="mega-menu-column">
+                                <h4>Prendas Deportivas</h4>
+                                <a href="#productos" class="mega-link" data-filter="L&iacute;nea Deportiva">Cinturilla L&aacute;tex Alina</a>
+                                <a href="#productos" class="mega-link" data-filter="Chalecos">Chaleco T&eacute;rmico Zoe</a>
+                                <a href="#productos" class="mega-link" data-filter="Combos">Combos Deportivos</a>
+                            </div>
+                            <div class="mega-menu-column">
+                                <h4>Beneficios</h4>
+                                <a href="#productos">Soporte Lumbar Deportivo</a>
+                                <a href="#productos">Aumento de Termog&eacute;nesis</a>
+                                <a href="#productos">Corrector de Postura en Gym</a>
+                            </div>
+                            <div class="mega-menu-column mega-featured">
+                                <img src="https://fitnesslinefajas.com/wp-content/uploads/2026/01/8802-fr.png" alt="Alina" width="120" height="120" loading="lazy" decoding="async">
+                                <div class="mega-featured-text">
+                                    <h5>Cinturilla Alina (8802)</h5>
+                                    <p>L&aacute;tex de alta resistencia con 3 filas de broches.</p>
+                                    <a href="#productos" class="btn-tertiary" style="color: var(--color-primary); padding: 0; font-size: 0.8rem;">Ver Producto</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </li>
+
+                <li class="nav-item-dropdown">
+                    <a href="#colecciones" class="nav-item nav-view-link" data-view="colecciones">Post-Parto</a>
+                    <div class="mega-menu">
+                        <div class="mega-menu-content">
+                            <div class="mega-menu-column">
+                                <h4>Recuperaci&oacute;n</h4>
+                                <a href="#productos" class="mega-link" data-filter="L&iacute;nea Post-Parto">Combo Parto Natural</a>
+                                <a href="#productos" class="mega-link" data-filter="L&iacute;nea Post-Parto">Combo Post-Ces&aacute;rea</a>
+                                <a href="#productos" class="mega-link" data-filter="Brassieres">Brassieres Lactancia</a>
+                            </div>
+                            <div class="mega-menu-column">
+                                <h4>Gu&iacute;as M&eacute;dicas</h4>
+                                <a href="#productos">Compresi&oacute;n Gradual</a>
+                                <a href="#productos">Cierre Lateral Acolchado</a>
+                                <a href="#productos">Protecci&oacute;n de Heridas</a>
+                            </div>
+                            <div class="mega-menu-column mega-featured">
+                                <img src="https://fitnesslinefajas.com/wp-content/uploads/2025/10/Fotografias-Pagina-Web-2-3-1.png" alt="Postparto" width="120" height="120" loading="lazy" decoding="async">
+                                <div class="mega-featured-text">
+                                    <h5>Kit Parto Natural (5023)</h5>
+                                    <p>Soporte abdominal postparto para recuperar tu silueta.</p>
+                                    <a href="#productos" class="btn-tertiary" style="color: var(--color-primary); padding: 0; font-size: 0.8rem;">Ver Combo</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </li>
+
+                <li class="nav-item-dropdown">
+                    <a href="#colecciones" class="nav-item nav-view-link" data-view="colecciones">Seamless</a>
+                    <div class="mega-menu">
+                        <div class="mega-menu-content">
+                            <div class="mega-menu-column">
+                                <h4>Bodyshape Seamless</h4>
+                                <a href="#productos" class="mega-link" data-filter="Seamless">Mariana Bodyshape</a>
+                                <a href="#productos" class="mega-link" data-filter="Seamless">Bodyshape Supreme</a>
+                                <a href="#productos" class="mega-link" data-filter="Seamless">Short Moldeador</a>
+                            </div>
+                            <div class="mega-menu-column">
+                                <h4>Beneficios</h4>
+                                <a href="#productos">Tejido Inteligente 3D</a>
+                                <a href="#productos">Moldeo de Compresi&oacute;n Suave</a>
+                                <a href="#productos">Ideal para uso diario</a>
+                            </div>
+                            <div class="mega-menu-column mega-featured">
+                                <img src="https://fitnesslinefajas.com/wp-content/uploads/2026/01/9302-fr.png" alt="Mariana" width="120" height="120" loading="lazy" decoding="async">
+                                <div class="mega-featured-text">
+                                    <h5>Mariana Seamless</h5>
+                                    <p>Bodysuit suave sin costuras de control diario.</p>
+                                    <a href="#productos" class="btn-tertiary" style="color: var(--color-primary); padding: 0; font-size: 0.8rem;">Ver Producto</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </li>
+
+                <li class="nav-item-dropdown legacy-catalog-nav">
+                    <a href="#productos" class="nav-item nav-view-link" data-view="catalogo">Cat&aacute;logo</a>
+                    <div class="mega-menu catalog-mega-menu">
+                        <div class="catalog-mega-content">
+                            <div class="catalog-mega-heading">
+                                <span>Cat&aacute;logo completo</span>
+                                <h4>Encuentra tu dise&ntilde;o ideal</h4>
+                                <p>Explora las l&iacute;neas reales de Fitness Line y filtra la vitrina en un clic.</p>
+                            </div>
+                            <div class="catalog-mega-links" id="catalogMenuCategories"></div>
+                        </div>
+                    </div>
+                </li>
+                <li><a href="#footer" class="nav-item nav-view-link" data-view="soporte">Soporte</a></li>
+            </ul>
+
+            <!-- Actions (Search, Cart, Account, Mobile Toggle) -->
+            <div class="nav-actions">
+                <div class="nav-catalog" id="navCatalogDetails">
+                    <input class="nav-catalog-toggle" id="navCatalogToggle" type="checkbox" aria-hidden="true" tabindex="-1">
+                    <button class="nav-catalog-trigger" id="navCatalogTrigger" type="button" aria-expanded="false" aria-controls="navCatalogPanel">
+                        <i class="fa-solid fa-bars-staggered"></i>
+                        <span>Categor&iacute;as</span>
+                    </button>
+                    <div class="nav-catalog-panel" id="navCatalogPanel">
+                        <div class="nav-catalog-panel-heading">
+                            <div>
+                                <span>Cat&aacute;logo Fitness Line</span>
+                                <h3>Explora nuestras colecciones</h3>
+                            </div>
+                            <button class="nav-catalog-close" id="navCatalogClose" type="button" aria-label="Cerrar categor&iacute;as">
+                                <i class="fa-solid fa-xmark"></i>
+                            </button>
+                        </div>
+                        <div class="nav-catalog-groups" id="navCatalogGroups"></div>
+                    </div>
+                </div>
+                <button class="nav-action-btn" id="searchOpenBtn" aria-label="Buscar productos">
+                    <i class="fa-solid fa-magnifying-glass"></i>
+                </button>
+                <button class="nav-action-btn cart-icon-container" id="cartToggleBtn" aria-label="Ver carrito">
+                    <i class="fa-solid fa-bag-shopping"></i>
+                    <span class="cart-count" id="cartCount">0</span>
+                </button>
+                <button class="nav-toggle" id="navToggle" aria-label="Men&uacute; m&oacute;vil">
+                    <span></span>
+                    <span></span>
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- --- MAIN CONTENT --- -->
+    <main class="main" role="main">
+
+        <!-- HERO REVEAL: Premium campaign experience -->
+        <section class="hero-reveal" id="reloj-de-arena" data-hero-reveal>
+            <div class="hero-reveal-media" data-hero-media>
+                <img class="hero-reveal-img hero-reveal-color" src="imagenes/animacion2.webp" alt="Fitness Line faja deportiva en color" width="1643" height="957" fetchpriority="high" decoding="async">
+                <img class="hero-reveal-img hero-reveal-bw" src="imagenes/animacion1.webp" alt="" aria-hidden="true" width="1647" height="955" fetchpriority="high" decoding="async">
+            </div>
+            <div class="hero-reveal-shade" aria-hidden="true"></div>
+            <div class="hero-reveal-content">
+                <p class="hero-reveal-kicker">FITNESS LINE</p>
+                <h1>
+                    <span>Dise&ntilde;adas para</span>
+                    <span><em>realzar</em> tu figura</span>
+                </h1>
+                <p class="hero-reveal-subtitle">Compresi&oacute;n inteligente, soporte y comodidad para acompa&ntilde;arte con una silueta m&aacute;s estilizada durante todo el d&iacute;a.</p>
+                <a class="hero-reveal-cta" href="#productos">Descubrir colecci&oacute;n</a>
+            </div>
+        </section>
+
+        <!-- BENEFICIOS PREMIUM -->
+        <section class="premium-reasons" id="beneficios-premium" aria-labelledby="premiumReasonsTitle">
+            <div class="premium-reasons-inner">
+                <header class="premium-reasons-heading animate-on-scroll">
+                    <span>La experiencia Fitness Line</span>
+                    <h2 id="premiumReasonsTitle">Ingenier&iacute;a que moldea.<br><em>Dise&ntilde;o que acompa&ntilde;a.</em></h2>
+                    <p>Cada prenda une compresi&oacute;n precisa, textiles avanzados y confecci&oacute;n colombiana para brindarte soporte sin renunciar a tu comodidad.</p>
+                </header>
+                <div class="premium-reasons-grid">
+                    <article class="premium-reason animate-on-scroll delay-1">
+                        <i class="fa-solid fa-arrows-left-right-to-line" aria-hidden="true"></i>
+                        <h3>Moldeo inteligente</h3>
+                        <p>Compresi&oacute;n estrat&eacute;gica que acompa&ntilde;a y realza tu silueta.</p>
+                    </article>
+                    <article class="premium-reason animate-on-scroll delay-2">
+                        <i class="fa-regular fa-sun" aria-hidden="true"></i>
+                        <h3>Comodidad todo el d&iacute;a</h3>
+                        <p>Prendas pensadas para moverte con libertad durante cada momento.</p>
+                    </article>
+                    <article class="premium-reason animate-on-scroll delay-3">
+                        <i class="fa-solid fa-layer-group" aria-hidden="true"></i>
+                        <h3>Tecnolog&iacute;a textil premium</h3>
+                        <p>Materiales avanzados, transpirables y suaves en contacto con tu piel.</p>
+                    </article>
+                    <article class="premium-reason animate-on-scroll delay-4">
+                        <i class="fa-solid fa-pen-ruler" aria-hidden="true"></i>
+                        <h3>Dise&ntilde;o colombiano</h3>
+                        <p>Experiencia, detalle y confecci&oacute;n especializada hecha en Colombia.</p>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <!-- HERO BANNER 2: Ultra Invisible (Aesthetic Light Split Layout) -->
+        <section class="hero-section hero-light hero-clean hero-ultra-clean" id="ultra-invisible">
+            <img class="hero-overlay-logo animate-on-scroll" src="https://fitnesslinefajas.com/wp-content/uploads/2023/04/logos_Fitness_Line.png" alt="Fitness Line" width="220" height="58" loading="lazy" decoding="async">
+            <div class="hero-ultra-copy animate-on-scroll">
+                <span>L&iacute;nea Ultra Invisible</span>
+                <h2>Ligera. Discreta.<br>Esencial.</h2>
+                <p>Control suave y acabados imperceptibles para acompa&ntilde;arte con comodidad durante todo el d&iacute;a.</p>
+            </div>
+            <div class="technology-marquee-section">
+                <div class="technology-lab-atmosphere" aria-hidden="true">
+                    <span class="technology-lab-orbit technology-lab-orbit-one"></span>
+                    <span class="technology-lab-orbit technology-lab-orbit-two"></span>
+                    <span class="technology-lab-particles"></span>
+                </div>
+                <div class="technology-marquee-heading">
+                    <span>Tecnolog&iacute;a Fitness Line</span>
+                    <h2>Tecnolog&iacute;a que transforma</h2>
+                    <p>Detalles inteligentes que realzan tu figura.</p>
+                </div>
+                <div class="technology-marquee" aria-label="Beneficios tecnol&oacute;gicos Fitness Line" tabindex="0">
+                    <div class="technology-marquee-track">
+                        <article class="technology-marquee-card">
+                            <svg viewBox="0 0 64 64" aria-hidden="true"><path d="M18 8v48M32 8v48M46 8v48M12 14h42M12 26h42M12 38h42M12 50h42"/><circle cx="22" cy="20" r="2"/><circle cx="36" cy="20" r="2"/><circle cx="22" cy="32" r="2"/><circle cx="36" cy="32" r="2"/><circle cx="22" cy="44" r="2"/><circle cx="36" cy="44" r="2"/></svg>
+                            <h3>Broches 3 niveles</h3>
+                            <p>Ajuste seguro</p>
+                        </article>
+                        <article class="technology-marquee-card">
+                            <svg viewBox="0 0 64 64" aria-hidden="true"><path d="M12 46c10-8 10-24 20-32 7 9 12 16 20 19M14 38c6 1 11 4 15 9M22 27c6 1 12 5 17 10M30 16c5 2 10 6 14 11M20 50l27-37"/><path d="M19 21l5 6M29 31l5 6M39 40l5 6"/></svg>
+                            <h3>Costuras planas</h3>
+                            <p>No marca</p>
+                        </article>
+                        <article class="technology-marquee-card">
+                            <svg viewBox="0 0 64 64" aria-hidden="true"><path d="M24 8h16v18l-4 5v9h-8v-9l-4-5V8zM20 8h24M18 49h28M32 40v12M22 56l4-4M42 56l-4-4M16 44l8 4M48 44l-8 4"/></svg>
+                            <h3>Corte l&aacute;ser</h3>
+                            <p>Acabado invisible</p>
+                        </article>
+                        <article class="technology-marquee-card">
+                            <svg viewBox="0 0 64 64" aria-hidden="true"><path d="M12 46c8-18 23-28 40-32M18 50c8-13 20-21 36-25M20 16c4 8 10 10 18 8M24 26c4 7 10 9 17 7M29 36c4 5 9 7 15 5"/><path d="M42 12l6 8M33 18l6 8M24 25l6 8"/></svg>
+                            <h3>Bandas siliconadas</h3>
+                            <p>No se enrolla</p>
+                        </article>
+                        <article class="technology-marquee-card">
+                            <svg viewBox="0 0 64 64" aria-hidden="true"><path d="M24 12c-4 9-6 18-5 28 1 8 7 14 13 14s12-6 13-14c1-10-1-19-5-28M24 33c4 3 8 4 12 0M18 30l-8-1M46 30l8-1M20 22l-6-5M44 22l6-5M32 20v-8"/></svg>
+                            <h3>Realce natural</h3>
+                            <p>Moldea suave</p>
+                        </article>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- EDITORIAL PRODUCT COMPARISON -->
+        <section class="editorial-comparison" id="comparacion" aria-labelledby="comparisonTitle">
+            <div class="editorial-comparison-inner">
+                <header class="editorial-comparison-heading animate-on-scroll">
+                    <span>Fitness Line vs. convencional</span>
+                    <h2 id="comparisonTitle">La diferencia est&aacute; en los detalles</h2>
+                    <p>Dise&ntilde;amos cada prenda para ofrecer una experiencia superior desde el primer ajuste.</p>
+                </header>
+
+                <div class="comparison-columns animate-on-scroll delay-1" aria-hidden="true">
+                    <span>Detalle</span>
+                    <strong>Fitness Line</strong>
+                    <span>Faja convencional</span>
+                </div>
+
+                <div class="comparison-list">
+                    <article class="comparison-row animate-on-scroll delay-1">
+                        <div class="comparison-feature">
+                            <span>01</span>
+                            <h3>Mejor compresi&oacute;n</h3>
+                        </div>
+                        <div class="comparison-value comparison-value-premium">
+                            <i class="fa-solid fa-check" aria-hidden="true"></i>
+                            <p>Compresi&oacute;n estrat&eacute;gica que moldea sin limitar el movimiento.</p>
+                        </div>
+                        <div class="comparison-value comparison-value-standard">
+                            <i class="fa-solid fa-minus" aria-hidden="true"></i>
+                            <p>Presi&oacute;n uniforme con menor definici&oacute;n de la silueta.</p>
+                        </div>
+                    </article>
+                    <article class="comparison-row animate-on-scroll delay-2">
+                        <div class="comparison-feature">
+                            <span>02</span>
+                            <h3>Mayor comodidad</h3>
+                        </div>
+                        <div class="comparison-value comparison-value-premium">
+                            <i class="fa-solid fa-check" aria-hidden="true"></i>
+                            <p>Soporte flexible pensado para acompa&ntilde;arte durante todo el d&iacute;a.</p>
+                        </div>
+                        <div class="comparison-value comparison-value-standard">
+                            <i class="fa-solid fa-minus" aria-hidden="true"></i>
+                            <p>Estructura r&iacute;gida que puede resultar inc&oacute;moda con el uso prolongado.</p>
+                        </div>
+                    </article>
+                    <article class="comparison-row animate-on-scroll delay-3">
+                        <div class="comparison-feature">
+                            <span>03</span>
+                            <h3>Mejor ajuste</h3>
+                        </div>
+                        <div class="comparison-value comparison-value-premium">
+                            <i class="fa-solid fa-check" aria-hidden="true"></i>
+                            <p>Dise&ntilde;o anat&oacute;mico que se adapta a las curvas naturales del cuerpo.</p>
+                        </div>
+                        <div class="comparison-value comparison-value-standard">
+                            <i class="fa-solid fa-minus" aria-hidden="true"></i>
+                            <p>Patronaje gen&eacute;rico con menor adaptaci&oacute;n a diferentes siluetas.</p>
+                        </div>
+                    </article>
+                    <article class="comparison-row animate-on-scroll delay-4">
+                        <div class="comparison-feature">
+                            <span>04</span>
+                            <h3>Menos marcas visibles</h3>
+                        </div>
+                        <div class="comparison-value comparison-value-premium">
+                            <i class="fa-solid fa-check" aria-hidden="true"></i>
+                            <p>Acabados discretos y costuras planas para usar bajo tu ropa.</p>
+                        </div>
+                        <div class="comparison-value comparison-value-standard">
+                            <i class="fa-solid fa-minus" aria-hidden="true"></i>
+                            <p>Costuras y bordes convencionales que pueden marcar la prenda exterior.</p>
+                        </div>
+                    </article>
+                    <article class="comparison-row animate-on-scroll">
+                        <div class="comparison-feature">
+                            <span>05</span>
+                            <h3>Material premium</h3>
+                        </div>
+                        <div class="comparison-value comparison-value-premium">
+                            <i class="fa-solid fa-check" aria-hidden="true"></i>
+                            <p>Textiles suaves, resistentes y transpirables seleccionados por expertos.</p>
+                        </div>
+                        <div class="comparison-value comparison-value-standard">
+                            <i class="fa-solid fa-minus" aria-hidden="true"></i>
+                            <p>Materiales b&aacute;sicos con menor suavidad y respirabilidad.</p>
+                        </div>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <!-- ASPIRATIONAL BRAND STORY -->
+        <section class="aspirational-story" id="historia" aria-labelledby="aspirationalStoryTitle">
+            <img class="aspirational-story-image" src="imagenes/imagen-de-cambio.webp" alt="Mujeres Fitness Line expresando confianza y elegancia" width="1536" height="1024" loading="lazy" decoding="async">
+            <div class="aspirational-story-shade" aria-hidden="true"></div>
+            <div class="aspirational-story-copy">
+                <span class="animate-on-scroll">Tu silueta. Tu confianza.</span>
+                <h2 class="animate-on-scroll delay-1" id="aspirationalStoryTitle">Sentirte t&uacute;,<br><em>con m&aacute;s seguridad.</em></h2>
+                <p class="animate-on-scroll delay-2">Cada curva cuenta una historia. Fitness Line acompa&ntilde;a la tuya con prendas que realzan qui&eacute;n eres y te ayudan a reconocer tu mejor versi&oacute;n.</p>
+            </div>
+        </section>
+
+        <section class="category-premium-experience" id="colecciones" data-category-premium>
+            <div class="category-hero">
+                <div class="category-hero-copy">
+                    <span class="category-hero-kicker">Colecciones Fitness Line</span>
+                    <h2>Una silueta para <em>cada momento</em></h2>
+                    <p>Explora colecciones creadas para acompa&ntilde;ar tus necesidades, tu estilo y tu forma de sentirte.</p>
+                    <button class="category-hero-cta premium-category-pill" type="button" data-category-slug="" data-catalog-target="#productos">
+                        <span>Ver todas las colecciones</span><i class="fa-solid fa-arrow-right"></i>
+                    </button>
+
+                </div>
+
+                <div class="category-hero-media" data-category-parallax>
+                    <img src="imagenes/imagen-de-cambio.webp" alt="Modelo Fitness Line con faja premium" width="1536" height="1024" loading="lazy" decoding="async">
+                </div>
+            </div>
+
+            <div class="category-selector">
+                <div class="category-selector-heading">
+                    <span>Colecciones destacadas</span>
+                    <h3>Elige la que habla de <em>ti</em></h3>
+                    <p>Cada colecci&oacute;n combina una necesidad espec&iacute;fica con el dise&ntilde;o y la tecnolog&iacute;a Fitness Line.</p>
+                </div>
+
+                <div class="category-editorial-grid">
+                    <button class="category-editorial-card category-editorial-card-dark premium-category-pill" type="button" data-category-slug="fajas-enterizas" data-catalog-target="#productos">
+                        <img src="imagenes/showcase-window-3.webp" alt="Fajas enterizas Fitness Line" width="1672" height="941" loading="lazy" decoding="async">
+                        <span class="category-card-overlay"></span>
+                        <span class="category-card-content">
+                            <span class="category-card-kicker">Colecci&oacute;n 01</span>
+                            <strong>Enterizas</strong>
+                            <small>Moldeo de cuerpo completo para siluetas definidas.</small>
+                            <span>Explorar <i class="fa-solid fa-arrow-right"></i></span>
+                        </span>
+                    </button>
+                    <button class="category-editorial-card premium-category-pill" type="button" data-category-slug="post-parto" data-catalog-target="#productos">
+                        <img src="imagenes/centro.webp" alt="Fajas post parto Fitness Line" width="1536" height="1024" loading="lazy" decoding="async">
+                        <span class="category-card-overlay"></span>
+                        <span class="category-card-content">
+                            <span class="category-card-kicker">Colecci&oacute;n 02</span>
+                            <strong>Post Parto</strong>
+                            <small>Soporte y compresi&oacute;n dise&ntilde;ada para tu recuperaci&oacute;n.</small>
+                            <span>Explorar <i class="fa-solid fa-arrow-right"></i></span>
+                        </span>
+                    </button>
+                    <button class="category-editorial-card premium-category-pill" type="button" data-category-slug="linea-ultra-invisible" data-catalog-target="#productos">
+                        <img src="imagenes/ultra-invisible-gpt.webp" alt="Fajas ultra invisible Fitness Line" width="1958" height="958" loading="lazy" decoding="async">
+                        <span class="category-card-overlay"></span>
+                        <span class="category-card-content">
+                            <span class="category-card-kicker">Colecci&oacute;n 03</span>
+                            <strong>Ultra Invisible</strong>
+                            <small>Sin marcas, sin costuras. Invisible bajo tu ropa.</small>
+                            <span>Explorar <i class="fa-solid fa-arrow-right"></i></span>
+                        </span>
+                    </button>
+                </div>
+
+                <div class="category-directory">
+                    <div class="category-directory-heading">
+                        <div>
+                            <span>Directorio de colecciones</span>
+                            <p>Explora cada nivel de soporte y encuentra la prenda que acompa&ntilde;a tu ritmo, tu cuerpo y cada momento.</p>
+                        </div>
+                        <h4>Una l&iacute;nea para<br><em>cada versi&oacute;n de ti.</em></h4>
+                    </div>
+                    <div class="category-directory-grid">
+                        <button class="category-directory-link premium-category-pill" type="button" data-category-slug="fajas-largas" data-catalog-target="#productos"><span>Fajas largas</span><small>Compresi&oacute;n extendida</small><i class="fa-solid fa-arrow-right"></i></button>
+                        <button class="category-directory-link premium-category-pill" type="button" data-category-slug="fajas-tipo-short" data-catalog-target="#productos"><span>Fajas cortas</span><small>Libertad de movimiento</small><i class="fa-solid fa-arrow-right"></i></button>
+                        <button class="category-directory-link premium-category-pill" type="button" data-category-slug="fajas-tipo-body" data-catalog-target="#productos"><span>Bodys</span><small>Moldeo vers&aacute;til</small><i class="fa-solid fa-arrow-right"></i></button>
+                        <button class="category-directory-link premium-category-pill" type="button" data-category-slug="fajas-post-quirurgicas" data-catalog-target="#productos"><span>Post-quir&uacute;rgicas</span><small>Soporte especializado</small><i class="fa-solid fa-arrow-right"></i></button>
+                        <button class="category-directory-link premium-category-pill" type="button" data-category-slug="fajas-deportivas" data-catalog-target="#productos"><span>Deportivas</span><small>Movimiento y soporte</small><i class="fa-solid fa-arrow-right"></i></button>
+                        <button class="category-directory-link premium-category-pill" type="button" data-category-slug="bodyshape-seamless" data-catalog-target="#productos"><span>Bodyshape Seamless</span><small>Suavidad sin costuras</small><i class="fa-solid fa-arrow-right"></i></button>
+                        <button class="category-directory-link premium-category-pill" type="button" data-category-slug="cinturillas" data-catalog-target="#productos"><span>Cinturillas</span><small>Definici&oacute;n focalizada</small><i class="fa-solid fa-arrow-right"></i></button>
+                        <button class="category-directory-link premium-category-pill" type="button" data-category-slug="chalecos" data-catalog-target="#productos"><span>Chalecos</span><small>Soporte completo</small><i class="fa-solid fa-arrow-right"></i></button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- --- INTERACTIVE PRODUCT SHOWCASE --- -->
+        <section class="section-wrapper" id="productos">
+            <h2 class="section-title animate-on-scroll">Elige tu Faja Premium</h2>
+            <p class="section-subtitle animate-on-scroll delay-1">Selecciona el dise&ntilde;o ideal de nuestra f&aacute;brica colombiana. Calidad certificada de exportaci&oacute;n.</p>
+            <span class="catalog-view-kicker" id="catalogViewKicker">Cat&aacute;logo completo</span>
+
+            <div class="catalog-toolbar catalog-toolbar-clean animate-on-scroll delay-2">
+                <label class="catalog-filter-label" for="catalogCategoryFilter">Filtrar por categoria</label>
+                <select class="catalog-category-filter" id="catalogCategoryFilter">
+                    <option value="">Todos los productos</option>
+                </select>
+                <span class="catalog-count" id="catalogCount"></span>
+            </div>
+
+            <div class="premium-products-carousel animate-on-scroll delay-3">
+                <div class="products-grid" id="productsGrid">
+                    <!-- El catalogo completo se renderiza desde catalog-data.js -->
+                </div>
+            </div>
+
+        </section>
+
+    </main>
+
+    <!-- --- PRODUCT DETAIL (Large, image-first modal) --- -->
+    <div class="product-modal" id="productModal" aria-hidden="true">
+        <div class="product-modal-overlay" id="productModalOverlay"></div>
+        <section class="product-detail" role="dialog" aria-modal="true" aria-labelledby="detailProductName">
+            <button class="detail-close" id="detailCloseBtn" type="button" aria-label="Cerrar producto"><i class="fa-solid fa-xmark"></i></button>
+            <div class="detail-gallery">
+                <button class="detail-image-stage" id="detailZoomBtn" type="button" aria-label="Ampliar imagen">
+                    <img id="detailMainImage" alt="" width="900" height="1100" decoding="async">
+                    <span class="detail-zoom-hint"><i class="fa-solid fa-magnifying-glass-plus"></i> Ampliar</span>
+                </button>
+                <div class="detail-thumbnails" id="detailThumbnails"></div>
+            </div>
+            <div class="detail-copy">
+                <div class="detail-heading">
+                    <span class="detail-category" id="detailCategory"></span>
+                    <button class="favorite-btn" id="favoriteBtn" type="button" aria-label="Guardar como favorito"><i class="fa-regular fa-heart"></i></button>
+                </div>
+                <h2 id="detailProductName"></h2>
+                <p class="detail-price" id="detailPrice"></p>
+                <a class="addi-card" href="https://co.addi.com/" target="_blank" rel="noopener">
+                    <strong>Paga con Addi</strong>
+                    <span>Compra ahora y paga hasta en 6 cuotas. Solicita tu cupo.</span>
+                </a>
+                <p class="detail-description" id="detailDescription"></p>
+                <div class="detail-features" id="detailFeatures"></div>
+                <div class="detail-options" id="detailOptions"></div>
+                <button class="btn btn-brand detail-add-btn" id="detailAddBtn" type="button">A&ntilde;adir al carrito</button>
+                <section class="size-guide" id="sizeGuide">
+                    <div class="size-guide-heading"><span>Gu&iacute;a de compra</span><h3>Tabla de medidas</h3></div>
+                    <p>Elige tu talla seg&uacute;n la medida de cintura. Si est&aacute;s entre dos tallas, solicita asesor&iacute;a personalizada.</p>
+                    <div class="size-table-wrap">
+                        <table>
+                            <thead><tr><th>Talla</th><th>Cintura (cm)</th><th>Cintura (pulg)</th></tr></thead>
+                            <tbody>
+                                <tr><td>3XS</td><td>53 - 60</td><td>21 - 24</td></tr><tr><td>2XS</td><td>60 - 67</td><td>24 - 26</td></tr>
+                                <tr><td>XS</td><td>67 - 74</td><td>26 - 29</td></tr><tr><td>S</td><td>74 - 81</td><td>29 - 32</td></tr>
+                                <tr><td>M</td><td>81 - 88</td><td>32 - 35</td></tr><tr><td>L</td><td>88 - 95</td><td>35 - 37</td></tr>
+                                <tr><td>XL</td><td>95 - 102</td><td>37 - 40</td></tr><tr><td>2XL</td><td>102 - 109</td><td>40 - 43</td></tr>
+                                <tr><td>3XL</td><td>109 - 116</td><td>43 - 46</td></tr><tr><td>4XL</td><td>116 - 123</td><td>46 - 48</td></tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </section>
+            </div>
+        </section>
+    </div>
+
+    <div class="zoom-modal" id="zoomModal" aria-hidden="true">
+        <button class="zoom-close" id="zoomCloseBtn" type="button" aria-label="Cerrar ampliaci&oacute;n"><i class="fa-solid fa-xmark"></i></button>
+        <img id="zoomImage" alt="" width="1200" height="1400" decoding="async">
+    </div>
+
+    <!-- --- FLOATING CART PANEL (Off-canvas sidebar) --- -->
+    <div class="side-cart-overlay" id="cartOverlay"></div>
+    <div class="side-cart" id="sideCart">
+        <div class="cart-header">
+            <h3 class="cart-header-title">Tu Bolsa</h3>
+            <button class="cart-close-btn" id="cartCloseBtn" aria-label="Cerrar bolsa">
+                <i class="fa-solid fa-xmark"></i>
+            </button>
+        </div>
+        <div class="cart-items-container" id="cartItemsList">
+            <!-- Items added will be rendered dynamically here -->
+            <p class="cart-empty-message" id="cartEmptyMessage">Tu bolsa est&aacute; vac&iacute;a.</p>
+        </div>
+        <div class="cart-footer">
+            <div class="cart-total-row">
+                <span>Subtotal:</span>
+                <span id="cartSubtotal">$0 COP</span>
+            </div>
+            <button class="btn btn-brand cart-checkout-btn" id="cartCheckoutBtn">Finalizar por WhatsApp</button>
+        </div>
+    </div>
+
+    <!-- --- INTERACTIVE SEARCH MODAL (Full screen) --- -->
+    <div class="search-modal" id="searchModal">
+        <div class="search-container">
+            <button class="search-close-btn" id="searchCloseBtn" type="button" aria-label="Cerrar búsqueda">Cerrar</button>
+            <div class="search-input-wrapper">
+                <input type="text" class="search-input" id="searchInput" placeholder="Buscar fajas, tallas o l&iacute;neas..." autocomplete="off">
+            </div>
+            
+            <div class="search-results-panel">
+                <!-- Suggested links -->
+                <div id="searchSuggestions">
+                    <h4 class="search-section-title">B&uacute;squedas sugeridas</h4>
+                    <ul class="quick-links-list">
+                        <li class="quick-link-item"><a href="#reloj-de-arena" class="search-suggestion-link">Reloj de Arena Pro</a></li>
+                        <li class="quick-link-item"><a href="#ultra-invisible" class="search-suggestion-link">Invisible sin costuras</a></li>
+                        <li class="quick-link-item"><a href="#colecciones" class="search-suggestion-link">Cinturillas Deportivas L&aacute;tex</a></li>
+                        <li class="quick-link-item"><a href="#productos" class="search-suggestion-link">Faja Postparto Natural</a></li>
+                    </ul>
+                </div>
+
+                <!-- Suggested Products match list -->
+                <div id="searchResults" style="display: none;">
+                    <h4 class="search-section-title">Productos encontrados</h4>
+                    <div class="suggested-products-grid" id="searchMatchGrid">
+                        <!-- Rendered dynamically -->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- --- FLOATING MINIMALIST WHATSAPP WIDGET --- -->
+    <a class="whatsapp-widget" id="whatsappBtn" href="https://wa.me/573203823557?text=Hola%20Fitness%20Line%2C%20quisiera%20recibir%20asesor%C3%ADa%20sobre%20sus%20productos." target="_blank" rel="noopener" aria-label="Abrir asesoría por WhatsApp">
+        <div class="whatsapp-icon">
+            <i class="fa-brands fa-whatsapp"></i>
+        </div>
+        <span class="whatsapp-text">Asesor&iacute;a Fajas Pro</span>
+    </a>
+
+    <!-- --- EDITORIAL TESTIMONIALS --- -->
+    <section class="editorial-testimonials" id="testimonios" aria-labelledby="testimonialsTitle">
+        <div class="editorial-testimonials-inner">
+            <header class="editorial-testimonials-heading animate-on-scroll">
+                <span>Experiencias Fitness Line</span>
+                <h2 id="testimonialsTitle">Confianza que se nota.<br><em>Comodidad que se siente.</em></h2>
+                <p>Historias de mujeres que eligieron soporte, libertad y una silueta que se siente naturalmente suya.</p>
+            </header>
+
+            <div class="editorial-testimonials-layout">
+                <article class="testimonial-featured animate-on-scroll delay-1">
+                    <div class="testimonial-rating" aria-label="5 de 5 estrellas">
+                        <i class="fa-solid fa-star" aria-hidden="true"></i><i class="fa-solid fa-star" aria-hidden="true"></i><i class="fa-solid fa-star" aria-hidden="true"></i><i class="fa-solid fa-star" aria-hidden="true"></i><i class="fa-solid fa-star" aria-hidden="true"></i>
+                    </div>
+                    <blockquote>&ldquo;Me sorprendi&oacute; sentir soporte sin perder comodidad. La uso durante todo el d&iacute;a y se adapta a mi cuerpo de una forma muy natural.&rdquo;</blockquote>
+                    <footer>
+                        <strong>Mariana R.</strong>
+                        <span>Medell&iacute;n</span>
+                    </footer>
+                </article>
+
+                <div class="testimonial-secondary-list">
+                    <article class="testimonial-secondary animate-on-scroll delay-2">
+                        <div class="testimonial-rating" aria-label="5 de 5 estrellas">
+                            <i class="fa-solid fa-star" aria-hidden="true"></i><i class="fa-solid fa-star" aria-hidden="true"></i><i class="fa-solid fa-star" aria-hidden="true"></i><i class="fa-solid fa-star" aria-hidden="true"></i><i class="fa-solid fa-star" aria-hidden="true"></i>
+                        </div>
+                        <blockquote>&ldquo;Debajo de mis vestidos no se marca y me siento mucho m&aacute;s segura. El ajuste es firme, pero nunca inc&oacute;modo.&rdquo;</blockquote>
+                        <footer><strong>Laura P.</strong><span>Bogot&aacute;</span></footer>
+                    </article>
+                    <article class="testimonial-secondary animate-on-scroll delay-3">
+                        <div class="testimonial-rating" aria-label="5 de 5 estrellas">
+                            <i class="fa-solid fa-star" aria-hidden="true"></i><i class="fa-solid fa-star" aria-hidden="true"></i><i class="fa-solid fa-star" aria-hidden="true"></i><i class="fa-solid fa-star" aria-hidden="true"></i><i class="fa-solid fa-star" aria-hidden="true"></i>
+                        </div>
+                        <blockquote>&ldquo;La asesor&iacute;a de talla hizo toda la diferencia. Recib&iacute; una prenda que realmente se siente hecha para m&iacute;.&rdquo;</blockquote>
+                        <footer><strong>Carolina M.</strong><span>Cali</span></footer>
+                    </article>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- --- PREMIUM FOOTER --- -->
+    <footer class="footer footer-refined" id="footer">
+        <div class="footer-container">
+            <div class="footer-signature">
+                <span>Dise&ntilde;ado y fabricado en Colombia</span>
+                <strong>Prendas que acompa&ntilde;an <em>tu mejor versi&oacute;n.</em></strong>
+            </div>
+            <div class="footer-refined-grid">
+                <section class="footer-newsletter">
+                    <h5>Suscr&iacute;bete a nuestro bolet&iacute;n</h5>
+                    <p>Recibe novedades, lanzamientos y recomendaciones de talla.</p>
+                    <form class="footer-newsletter-form">
+                        <label class="footer-newsletter-field"><i class="fa-regular fa-envelope"></i><input type="email" placeholder="Correo electr&oacute;nico" aria-label="Correo electr&oacute;nico"></label>
+                        <label class="footer-consent"><input type="checkbox"><span>Acepto la pol&iacute;tica de tratamiento de datos</span></label>
+                        <button type="button"><span>Suscribirme</span><i class="fa-solid fa-arrow-right"></i></button>
+                    </form>
+                </section>
+                <section class="footer-refined-column">
+                    <h5>Contacto</h5>
+                    <a class="footer-contact-link" href="https://wa.me/573203823557" target="_blank" rel="noopener"><i class="fa-brands fa-whatsapp"></i><span>(+57) 320 382 35 57</span></a>
+                    <a class="footer-contact-link" href="mailto:fitnesslinefajas@gmail.com"><i class="fa-regular fa-envelope"></i><span>fitnesslinefajas@gmail.com</span></a>
+                    <div class="footer-socials">
+                        <a href="https://www.instagram.com/" target="_blank" rel="noopener" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+                        <a href="https://www.facebook.com/" target="_blank" rel="noopener" aria-label="Facebook"><i class="fa-brands fa-facebook-f"></i></a>
+                    </div>
+                </section>
+                <section class="footer-refined-column">
+                    <h5>Informaci&oacute;n</h5>
+                    <a href="https://fitnesslinefajas.com/nosotros/" target="_blank" rel="noopener">Nosotros</a>
+                    <a href="https://fitnesslinefajas.com/preguntas-frecuentes/" target="_blank" rel="noopener">Preguntas frecuentes</a>
+                    <a href="https://fitnesslinefajas.com/politicas-del-sitio/" target="_blank" rel="noopener">Pol&iacute;ticas del sitio</a>
+                    <a href="https://fitnesslinefajas.com/contacto/" target="_blank" rel="noopener">Contacto</a>
+                </section>
+                <section class="footer-refined-column">
+                    <h5>Mi cuenta</h5>
+                    <a href="https://fitnesslinefajas.com/mi-cuenta/" target="_blank" rel="noopener">Acceder o registrarse</a>
+                    <a href="https://fitnesslinefajas.com/mi-cuenta/lost-password/" target="_blank" rel="noopener">Cambiar contrase&ntilde;a</a>
+                    <a href="https://fitnesslinefajas.com/politica-privacidad/" target="_blank" rel="noopener">Pol&iacute;tica de datos</a>
+                </section>
+            </div>
+            <div class="footer-payment-row">
+                <div class="footer-payment-title">
+                    <span>Compra segura</span>
+                    <strong>M&eacute;todos de pago</strong>
+                    <small>Transacciones protegidas y opciones para ti.</small>
+                </div>
+                <div class="footer-payment-icons" aria-label="M&eacute;todos de pago aceptados">
+                    <span class="payment-mark payment-mark-wide" aria-label="Wompi"><img src="imagenes/payment-wompi.svg" alt="Wompi" width="92" height="34" loading="lazy" decoding="async"></span>
+                    <span class="payment-mark" aria-label="Visa"><img src="imagenes/payment-visa.svg" alt="Visa" width="70" height="24" loading="lazy" decoding="async"></span>
+                    <span class="payment-mark" aria-label="Mastercard"><img src="imagenes/payment-mastercard.svg" alt="Mastercard" width="62" height="38" loading="lazy" decoding="async"></span>
+                    <span class="payment-mark payment-mark-amex" aria-label="American Express"><img src="imagenes/payment-amex.svg" alt="American Express" width="38" height="38" loading="lazy" decoding="async"></span>
+                    <span class="payment-mark payment-mark-pse" aria-label="PSE"><img src="imagenes/payment-pse.svg" alt="PSE Pagos Seguros en L&iacute;nea" width="72" height="34" loading="lazy" decoding="async"></span>
+                    <span class="payment-mark payment-mark-cash" aria-label="Pago en efectivo"><img src="imagenes/payment-cash.svg" alt="Pago en efectivo" width="30" height="20" loading="lazy" decoding="async"></span>
+                </div>
+            </div>
+            <div class="footer-legal">
+                <div class="footer-legal-text">Copyright &copy; 2026 Fitness Line Pro. Todos los derechos reservados.</div>
+                <div class="footer-legal-links">
+                    <a href="https://fitnesslinefajas.com/politica-privacidad/" target="_blank" rel="noopener">Pol&iacute;tica de privacidad</a>
+                    <a href="https://fitnesslinefajas.com/politicas-del-sitio/" target="_blank" rel="noopener">T&eacute;rminos y condiciones</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Interactive script link -->
+    <script src="components/AnimatedShowcaseWindows.js?v=1" defer></script>
+    <script src="catalog-data.js" defer></script>
+    <script src="app.js?v=57" defer></script>
+</body>
+</html>
+
+
+

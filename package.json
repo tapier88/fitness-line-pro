@@ -1,0 +1,16 @@
+{
+  "name": "fitness-line-pro",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Sitio estatico de Fitness Line Pro para catalogo, carrito y asesoria por WhatsApp.",
+  "scripts": {
+    "lint": "node scripts/validate-site.js",
+    "build": "node scripts/build.js",
+    "preview": "node scripts/preview.js dist",
+    "start": "node scripts/preview.js .",
+    "test": "npm run lint && npm run build"
+  },
+  "engines": {
+    "node": ">=18"
+  }
+}
